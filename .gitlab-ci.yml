@@ -1,0 +1,79 @@
+stages:
+  - preparation
+  - test
+#  - build
+#  - publish
+
+workflow:
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v(\S)+-release/' # Release build
+      variables:
+        CI_ENVIRONMENT: Release
+    - if: '$CI_COMMIT_TAG =~ /^v(\S)+-beta/' # Beta build
+      variables:
+        CI_ENVIRONMENT: Beta
+    - when: always
+
+.test-rules:
+  # Run manually if draft/wip merge request, otherwise run on success if merge request or main branch commit
+  - if: "$CI_MERGE_REQUEST_ID && ($CI_MERGE_REQUEST_TITLE !~ /^WIP: .*/ && $CI_MERGE_REQUEST_TITLE !~ /^Draft: .*/)"
+    when: on_success
+  - if: "$CI_MERGE_REQUEST_ID && ($CI_MERGE_REQUEST_TITLE =~ /^WIP: .*/ || $CI_MERGE_REQUEST_TITLE =~ /^Draft: .*/)"
+    when: manual
+  - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    when: on_success
+
+.publish-rules:
+  # Run on success if tagged with a version, e.g. v1.0.2-release
+  - if: '$CI_COMMIT_TAG =~ /^v(\S)+-(release|beta)/'
+    when: on_success
+
+npm:
+  stage: preparation
+  image: node:20-alpine
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - ./node_modules
+    expire_in: 1 days
+    when: always
+  rules:
+    - !reference [.test-rules]
+    - !reference [.publish-rules]
+
+prettier:
+  stage: test
+  image: node:20-alpine
+  needs:
+    - job: npm
+      artifacts: true
+  script:
+    - npm run lint:prettier
+  rules:
+    - !reference [.test-rules]
+    - !reference [.publish-rules]
+
+eslint:
+  stage: test
+  image: node:20-alpine
+  needs:
+    - job: npm
+      artifacts: true
+  script:
+    - npm run lint:js
+  rules:
+    - !reference [.test-rules]
+    - !reference [.publish-rules]
+
+stylelint:
+  stage: test
+  image: node:20-alpine
+  needs:
+    - job: npm
+      artifacts: true
+  script:
+    - npm run lint:style
+  rules:
+    - !reference [.test-rules]
+    - !reference [.publish-rules]
