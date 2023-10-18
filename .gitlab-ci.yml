@@ -42,6 +42,23 @@ npm:
     - !reference [.test-rules]
     - !reference [.publish-rules]
 
+#build-test:
+#  stage: preparation
+#  image: node:20-alpine
+#  needs:
+#    - job: npm
+#      artifacts: true
+#  script:
+#    - npm run package:test
+#  artifacts:
+#    paths:
+#      - ./out
+#    expire_in: 1 days
+#    when: always
+#  rules:
+#    - !reference [.test-rules]
+#    - !reference [.publish-rules]
+
 prettier:
   stage: test
   image: node:20-alpine

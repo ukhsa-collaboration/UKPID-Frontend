@@ -1,9 +1,16 @@
-const { app, BrowserWindow } = require("electron");
+import installExtension from "electron-devtools-installer";
+import { isTest } from "./util";
+
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
   app.quit();
+}
+
+if (isTest) {
+  import("wdio-electron-service/main");
 }
 
 const createWindow = () => {
@@ -12,6 +19,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      sandbox: !isTest,
       preload: path.join(__dirname, "preload.js"),
     },
   });
@@ -22,6 +30,16 @@ const createWindow = () => {
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools({ mode: "detach" });
+
+    // Install WebdriverIO Chrome Recorder extension
+    installExtension("pllimkccefnbmghgcikpjkmmcadeddfn")
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log("An error occurred: ", err));
+
+    // Install VueJS Dev Tools extension
+    installExtension("nhdogjmejiglipccpnnnanhbledajbpd")
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log("An error occurred: ", err));
   } else {
     mainWindow.loadFile(
       path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),

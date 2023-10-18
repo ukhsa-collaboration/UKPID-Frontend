@@ -47,6 +47,24 @@ You must have the following setup and ready to go before working on this project
 
 ## Contributing
 
+## Testing
+
+This project uses [WebdriverIO](https://webdriver.io/)(WDIO) for e2e and unit testing.
+
+You must write tests to accompany the code you write and the features you implement. The majority of these tests are
+likely to be e2e tests to verify the entire user flow of the feature you implemented. Where the code you
+write can be tested in isolation, you should write a unit test.
+
+Tests are run automatically on merge requests, commits to the `main` branch, and on builds. Tests must pass for the
+merge request to be accepted and for the build to start.
+
+### WDIO
+
+WDIO runs against a built application, so before you run WDIO, you should build the application for testing by
+running `npm run package:test`.
+
+WDIO can then be run with `npm run test`.
+
 ### Code quality
 
 This project uses several tools to enforce code standards and style.
