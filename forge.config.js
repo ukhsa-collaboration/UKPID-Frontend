@@ -1,22 +1,16 @@
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    asar: true,
+    prune: process.env.NODE_ENV !== "test",
+  },
   rebuildConfig: {},
   makers: [
     {
-      name: "@electron-forge/maker-squirrel",
+      name: "@electron-forge/maker-squirrel", // Windows
       config: {},
     },
     {
-      name: "@electron-forge/maker-zip",
-      platforms: ["darwin"],
-    },
-    {
-      name: "@electron-forge/maker-deb",
-      config: {},
-    },
-    {
-      name: "@electron-forge/maker-rpm",
-      config: {},
+      name: "@electron-forge/maker-dmg", // Mac
     },
   ],
   plugins: [
