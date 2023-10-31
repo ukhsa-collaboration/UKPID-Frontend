@@ -11,6 +11,7 @@
         "resolveNestedSelectors": true,
         "message": "Expect class selector to conform to PascalCase BEM, see https://github.com/Skyscanner/stylelint-config-skyscanner#class-selector-pattern for pattern (selector-class-pattern)"
       }
-    ]
+    ],
+    "font-family-no-missing-generic-family-keyword": null
   }
 }

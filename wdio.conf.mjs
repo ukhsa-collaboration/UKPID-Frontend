@@ -1,3 +1,21 @@
+import path from "node:path";
+import process from "node:process";
+
+const appName = "UK Poisons Information Database";
+
+const outDir = path.join(
+  process.cwd(),
+  "out",
+  "test",
+  `${appName}-${process.platform}-${process.arch}`,
+);
+const appPath =
+  process.platform === "darwin"
+    ? path.join(outDir, `${appName}.app`, "Contents", "MacOS", appName)
+    : process.platform === "win32"
+    ? path.join(outDir, `${appName}.exe`)
+    : path.join(outDir, appName);
+
 export const config = {
   //
   // ====================
@@ -51,6 +69,9 @@ export const config = {
   capabilities: [
     {
       browserName: "electron",
+      "wdio:electronServiceOptions": {
+        appBinaryPath: appPath,
+      },
     },
   ],
 

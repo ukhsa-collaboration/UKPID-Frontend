@@ -1,0 +1,11 @@
+:root {
+  --danger: #c50f1f;
+  --success: #107c10;
+  --warning: #bc4b09;
+}
+
+#app {
+  --link-color: var(--accent-fill-rest);
+  --link-color-hover: var(--accent-fill-hover);
+  --link-color-active: var(--accent-fill-active);
+}
