@@ -45,7 +45,28 @@ You must have the following setup and ready to go before working on this project
    - 🤩 Add yourself to the contributors listed in the package.json file!
 2. Run `npm run start` to start the application for development
 
+## Documentation
+
+### Application Documentation
+
+While your code should be clean, obvious, and documented through docblocks and comments as appropriate, it may be
+necessary to write documentation to detail processes, features, and anything else you deem relevant as you contribute to
+this application. If you do this, you should write it in a Markdown file in the `/docs` directory. **You must** also
+familiarise yourself with the contents of the `/docs` directory before contributing to this project.
+
 ## Contributing
+
+## NPM
+
+This project is configured to install npm packages as dev dependencies by default. The reason for this being that dev
+dependencies are excluded from the packaged application. These dependencies are either exclusively used for testing, or
+are packages used by the renderer which are bundled up by Vite during the build process. If we were to include these
+dependencies are they are then the app package grows by about 500mb. They aren't necessary and saving them as dev
+dependencies by default removes the burden of having to pass the -D flag.
+
+For packages used by node in the main process, you'll need to pass `--save-prod` to the npm install command to save
+these as production dependencies which are included in the packaged app. If you encounter a module not found error when
+running a packaged build the cause is probably this.
 
 ## Testing
 
@@ -112,11 +133,3 @@ Merge requests must be reviewed and approved by a lead developer. CI/CD Pipeline
 and code quality tests on the code being submitted for merge. These pipelines must succeed before the merge request can
 be approved. To save time and reduce the usage of pipeline minutes, it is recommended you run these tools locally before
 marking your MR as ready for review.
-
-## Documentation
-
-### Application Documentation
-
-While your code should be clean, obvious, and documented through docblocks and comments as appropriate, it may be
-necessary to write documentation to detail processes, features, and anything else you deem relevant as you contribute to
-this application. If you do this, you should write it in a Markdown file in the `/docs` directory.

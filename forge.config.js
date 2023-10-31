@@ -1,7 +1,25 @@
+const {
+  utils: { fromBuildIdentifier },
+} = require("@electron-forge/core");
+const fs = require("fs");
+const { join } = require("path");
+
 module.exports = {
+  buildIdentifier: process.env.BUILD_IDENTIFIER ?? "release",
   packagerConfig: {
     asar: true,
     prune: process.env.NODE_ENV !== "test",
+    appBundleId: fromBuildIdentifier({
+      test: "co.uk.juicymedia.test.ukpid",
+      prerelease: "co.uk.juicymedia.prerelease.ukpid",
+      release: "co.uk.juicymedia.ukpid",
+    }),
+    protocols: [
+      {
+        name: "UK Poisons Information Database",
+        schemes: ["ukpid"],
+      },
+    ],
   },
   rebuildConfig: {},
   makers: [
@@ -39,4 +57,18 @@ module.exports = {
       },
     },
   ],
+  hooks: {
+    packageAfterCopy: async (forgeConfig, buildPath) => {
+      const metadata = {
+        buildIdentifier: forgeConfig.buildIdentifier,
+        appBundleId: forgeConfig.packagerConfig.appBundleId,
+      };
+
+      fs.writeFileSync(
+        join(buildPath, "ukpid.json"),
+        JSON.stringify(metadata),
+        { encoding: "utf8" },
+      );
+    },
+  },
 };

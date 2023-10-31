@@ -1,4 +1,5 @@
 @use "abstracts/functions" as fns;
+@use "abstracts/mixins";
 @use "abstracts/variables/breakpoints";
 @use "custom-properties";
 
@@ -22,7 +23,7 @@ body {
   font-family: var(--body-font);
   font-size: var(--type-ramp-base-font-size);
   line-height: var(--type-ramp-base-line-height);
-  background-color: var(--fill-color);
+  background-color: var(--neutral-layer-2);
   color: var(--neutral-foreground-rest);
   height: 100%;
   width: 100%;
@@ -68,4 +69,20 @@ p,
   font-weight: normal;
   font-size: var(--type-ramp-base-font-size);
   line-height: var(--type-ramp-base-line-height);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: var(--link-text-decoration);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--link-color-hover);
+    text-decoration: var(--link-text-decoration-hover);
+  }
+
+  &:active {
+    color: var(--link-color-active);
+    text-decoration: var(--link-text-decoration-active);
+  }
 }
