@@ -1,0 +1,55 @@
+<template>
+  <ContentFrame>
+    <template #header>
+      <h2 class="Title2">{{ $t("About") }}</h2>
+    </template>
+    <template #body>
+      <div class="AppInfo">
+        <Logo class="AppIcon" />
+        <p>
+          {{ $t("UK Poisons Information Database") }}
+          <br />
+          <span class="Caption1">{{ $t("Built by Juicy Media") }}</span>
+          <br />
+          <span class="Caption1">{{
+            $t("Version {version}", { version: "0.0.0" })
+          }}</span>
+        </p>
+      </div>
+      <section class="Credits">
+        <h3 class="Subtitle1">{{ $t("Credits") }}</h3>
+        <p>
+          {{
+            $t("UKPID is made possible thanks to these packages and libraries:")
+          }}
+        </p>
+      </section>
+    </template>
+  </ContentFrame>
+</template>
+
+<script setup>
+import ContentFrame from "@/components/navigation-view/ContentFrame.vue";
+import Logo from "@/assets/UKPIDLogoColour.svg";
+</script>
+
+<style lang="scss">
+@use "@/scss/abstracts/functions" as fns;
+@use "@/scss/abstracts/placeholders";
+
+.AppInfo {
+  @extend %no-child-margins;
+
+  display: flex;
+  gap: fns.gap(1);
+  align-items: center;
+}
+
+.AppIcon {
+  height: 48px;
+}
+
+.Credits {
+  @extend %clean-child-margins;
+}
+</style>

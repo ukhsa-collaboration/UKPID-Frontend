@@ -56,6 +56,14 @@ familiarise yourself with the contents of the `/docs` directory before contribut
 
 ## Contributing
 
+## CSS
+
+This application makes use of Vue's Single-File components. As such, the styling for a component should be included in a
+style tag within the component file. The CSS should be scoped, which allows us to write CSS specific to the component
+without needing to worry about class naming schemes.
+
+On the rare occasion you need to write a global style, use the `base.scss` file.
+
 ## NPM
 
 This project is configured to install npm packages as dev dependencies by default. The reason for this being that dev

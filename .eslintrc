@@ -4,16 +4,31 @@
     "browser": true,
     "node": true
   },
-  "plugins": ["wdio"],
+  "plugins": ["wdio", "prefer-arrow-functions"],
   "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "extends": [
     "plugin:vue/vue3-recommended",
     "prettier",
     "plugin:wdio/recommended"
   ],
+  "rules": {
+    "prefer-arrow-functions/prefer-arrow-functions": [
+      "error",
+      {
+        "allowNamedFunctions": false,
+        "classPropertiesAllowed": false,
+        "disallowPrototype": false,
+        "returnStyle": "unchanged",
+        "singleReturnOnly": false
+      }
+    ]
+  },
   "overrides": [
     {
-      "files": ["src/renderer/pages/*.vue"],
+      "files": ["src/renderer/pages/**/*.vue", "src/renderer/windows/**/*.vue"],
       "rules": {
         "vue/multi-word-component-names": "off"
       }

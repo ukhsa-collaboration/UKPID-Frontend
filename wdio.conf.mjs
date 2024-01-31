@@ -1,5 +1,7 @@
 import path from "node:path";
 import process from "node:process";
+import { homedir } from "os";
+import { rmSync } from "fs";
 
 const appName = "UK Poisons Information Database";
 
@@ -13,8 +15,15 @@ const appPath =
   process.platform === "darwin"
     ? path.join(outDir, `${appName}.app`, "Contents", "MacOS", appName)
     : process.platform === "win32"
-    ? path.join(outDir, `${appName}.exe`)
-    : path.join(outDir, appName);
+      ? path.join(outDir, `${appName}.exe`)
+      : path.join(outDir, appName);
+
+const userDataDir =
+  process.platform === "darwin"
+    ? path.join(homedir(), "Library", "Application Support", appName, "test")
+    : process.platform === "win32"
+      ? path.join(process.env.APPDATA, appName, "test")
+      : path.join(homedir(), ".config", appName);
 
 export const config = {
   //
@@ -60,7 +69,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 1,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -72,6 +81,9 @@ export const config = {
       "wdio:electronServiceOptions": {
         appBinaryPath: appPath,
       },
+      "goog:chromeOptions": {
+        args: [`user-data-dir=${userDataDir}`],
+      },
     },
   ],
 
@@ -82,7 +94,7 @@ export const config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: "error",
   //
   // Set specific log levels per logger
   // loggers:
@@ -167,7 +179,7 @@ export const config = {
    * @param {object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
    */
-  // onPrepare: function (config, capabilities) {
+  // onPrepare: (config, capabilities) => {
   // },
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
@@ -206,8 +218,10 @@ export const config = {
    * @param {Array.<String>} specs        List of spec file paths that are to be run
    * @param {object}         browser      instance of created browser/device session
    */
-  // before: function (capabilities, specs) {
-  // },
+  before: (capabilities, specs) => {
+    // Empty the user data folder for the test application
+    rmSync(userDataDir, { recursive: true, force: true });
+  },
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name
@@ -273,7 +287,7 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {Array.<String>} specs List of spec file paths that ran
    */
-  // after: function (result, capabilities, specs) {
+  // after: (result, capabilities, specs) => {
   // },
   /**
    * Gets executed right after terminating the webdriver session.
@@ -291,7 +305,7 @@ export const config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  // onComplete: function(exitCode, config, capabilities, results) {
+  // onComplete: (exitCode, config, capabilities, results) => {
   // },
   /**
    * Gets executed when a refresh happens.

@@ -1,24 +1,28 @@
-const { nativeTheme } = require("electron");
+import { nativeTheme } from "electron";
 
-export const getWindowTheme = () =>
+export const getWindowTheme = (hasTitleBar = true, titleBarHeight = 46) =>
   nativeTheme.shouldUseDarkColors
     ? {
         // Dark mode
         backgroundColor: "#272727",
-        titleBarOverlay: {
-          height: 40,
-          color: "#1a1a1a",
-          symbolColor: "#ffffff",
-        },
+        titleBarOverlay: !hasTitleBar
+          ? false
+          : {
+              height: titleBarHeight,
+              color: "#1a1a1a",
+              symbolColor: "#ffffff",
+            },
       }
     : {
         // Light mode
         backgroundColor: "#fbfbfb",
-        titleBarOverlay: {
-          height: 40,
-          color: "#f3f3f3",
-          symbolColor: "#1a1a1a",
-        },
+        titleBarOverlay: !hasTitleBar
+          ? false
+          : {
+              height: titleBarHeight,
+              color: "#f3f3f3",
+              symbolColor: "#1a1a1a",
+            },
       };
 
 export const setTheme = (browserWindow) => {

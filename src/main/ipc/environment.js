@@ -1,10 +1,9 @@
+import { ipcMain } from "electron";
 import { isDevelopment, isTest, isPrerelease, isRelease } from "../environment";
 
-const { ipcMain } = require("electron");
-
 export const environmentIpcHandlers = () => {
-  ipcMain.handle("isDevelopment", () => isDevelopment);
-  ipcMain.handle("isTest", () => isTest);
-  ipcMain.handle("isRelease", () => isRelease);
-  ipcMain.handle("isPrerelease", () => isPrerelease);
+  ipcMain.handle("environment:isDevelopment", () => isDevelopment);
+  ipcMain.handle("environment:isTest", () => isTest);
+  ipcMain.handle("environment:isRelease", () => isRelease);
+  ipcMain.handle("environment:isPrerelease", () => isPrerelease);
 };

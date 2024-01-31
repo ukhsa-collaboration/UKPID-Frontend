@@ -1,5 +1,4 @@
-const { app } = require("electron");
-
+import { app } from "electron";
 import { buildIdentifier } from "./app-metadata";
 
 export const isDevelopment = process.env.NODE_ENV === "development";

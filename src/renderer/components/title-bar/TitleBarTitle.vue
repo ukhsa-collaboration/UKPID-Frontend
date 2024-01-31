@@ -1,6 +1,6 @@
 <template>
   <div class="TitleBarTitle">
-    <img class="TitleBarTitle__Icon" alt="" src="" />
+    <Logo class="TitleBarTitle__Icon" />
     <span class="TitleBarTitle__LongName">UK Poisons Information Database</span>
     <span class="TitleBarTitle__ShortName">UKPID</span>
     <span class="TitleBarTitle__ReleaseTag">{{ props.releaseTag }}</span>
@@ -8,6 +8,8 @@
 </template>
 
 <script setup>
+import Logo from "@/assets/UKPIDLogoColour.svg";
+
 const props = defineProps({
   releaseTag: {
     type: String,
@@ -30,22 +32,10 @@ $show-long-name: breakpoints.$md;
 }
 
 .TitleBarTitle__Icon {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
+  width: 20px;
+  height: 20px;
   overflow: hidden;
   position: relative;
-}
-
-.TitleBarTitle__Icon::after {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--accent-fill-rest);
-  content: "";
 }
 
 .TitleBarTitle__ShortName {

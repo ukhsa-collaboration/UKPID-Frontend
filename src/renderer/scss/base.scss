@@ -10,6 +10,7 @@ html {
   height: 100%;
   width: 100%;
   text-size-adjust: none;
+  user-select: none;
 }
 
 body {
@@ -50,25 +51,93 @@ body {
   box-sizing: inherit;
 }
 
-@for $i from 1 through 6 {
-  h#{$i},
-  .h#{$i} {
-    /* stylelint-disable custom-property-pattern */
-    font-size: var(--type-ramp-plus-#{7 - $i}-font-size);
-    line-height: var(--type-ramp-plus-#{7 - $i}-line-height);
-    margin-top: var(--type-ramp-plus-#{7 - $i}-top-margin);
-    margin-bottom: var(--type-ramp-plus-#{7 - $i}-bottom-margin);
-    /* stylelint-enable custom-property-pattern */
-  }
+.Caption2 {
+  font-size: var(--type-ramp-minus-2-font-size);
+  line-height: var(--type-ramp-minus-2-line-height);
+  margin-top: var(--type-ramp-minus-2-top-margin);
+  margin-bottom: var(--type-ramp-minus-2-bottom-margin);
+  font-weight: var(--font-weight-normal);
+}
+
+small,
+.Caption1 {
+  font-size: var(--type-ramp-minus-1-font-size);
+  line-height: var(--type-ramp-minus-1-line-height);
+  margin-top: var(--type-ramp-minus-1-top-margin);
+  margin-bottom: var(--type-ramp-minus-1-bottom-margin);
+  font-weight: var(--font-weight-normal);
 }
 
 p,
-.p {
-  margin-top: var(--type-ramp-base-top-margin);
-  margin-bottom: var(--type-ramp-base-bottom-margin);
-  font-weight: normal;
+.Body {
   font-size: var(--type-ramp-base-font-size);
   line-height: var(--type-ramp-base-line-height);
+  margin-top: var(--type-ramp-base-top-margin);
+  margin-bottom: var(--type-ramp-base-bottom-margin);
+  font-weight: var(--font-weight-normal);
+}
+
+strong,
+.Strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.Stronger {
+  font-weight: var(--font-weight-bold);
+}
+
+h6,
+.Subtitle2 {
+  font-size: var(--type-ramp-plus-1-font-size);
+  line-height: var(--type-ramp-plus-1-line-height);
+  margin-top: var(--type-ramp-plus-1-top-margin);
+  margin-bottom: var(--type-ramp-plus-1-bottom-margin);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5,
+.Subtitle1 {
+  font-size: var(--type-ramp-plus-2-font-size);
+  line-height: var(--type-ramp-plus-2-line-height);
+  margin-top: var(--type-ramp-plus-2-top-margin);
+  margin-bottom: var(--type-ramp-plus-2-bottom-margin);
+  font-weight: var(--font-weight-semibold);
+}
+
+h4,
+.Title3 {
+  font-size: var(--type-ramp-plus-3-font-size);
+  line-height: var(--type-ramp-plus-3-line-height);
+  margin-top: var(--type-ramp-plus-3-top-margin);
+  margin-bottom: var(--type-ramp-plus-3-bottom-margin);
+  font-weight: var(--font-weight-semibold);
+}
+
+h3,
+.Title2 {
+  font-size: var(--type-ramp-plus-4-font-size);
+  line-height: var(--type-ramp-plus-4-line-height);
+  margin-top: var(--type-ramp-plus-4-top-margin);
+  margin-bottom: var(--type-ramp-plus-4-bottom-margin);
+  font-weight: var(--font-weight-semibold);
+}
+
+h2,
+.Title1 {
+  font-size: var(--type-ramp-plus-5-font-size);
+  line-height: var(--type-ramp-plus-5-line-height);
+  margin-top: var(--type-ramp-plus-5-top-margin);
+  margin-bottom: var(--type-ramp-plus-5-bottom-margin);
+  font-weight: var(--font-weight-semibold);
+}
+
+h1,
+.LargeTitle {
+  font-size: var(--type-ramp-plus-6-font-size);
+  line-height: var(--type-ramp-plus-6-line-height);
+  margin-top: var(--type-ramp-plus-6-top-margin);
+  margin-bottom: var(--type-ramp-plus-6-bottom-margin);
+  font-weight: var(--font-weight-semibold);
 }
 
 a {
@@ -84,5 +153,64 @@ a {
   &:active {
     color: var(--link-color-active);
     text-decoration: var(--link-text-decoration-active);
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  // Fade out, slide in
+  .EntranceLeaveActive {
+    transition: all 0.2s cubic-bezier(0, 0, 0, 1);
+  }
+
+  .EntranceLeaveTo {
+    opacity: 0;
+  }
+
+  .EntranceEnterActive {
+    transition: all 0.1s cubic-bezier(0, 0, 0, 1) 0.2s;
+  }
+
+  .EntranceEnterFrom {
+    transform: translateY(50px);
+    height: calc(100% - 50px) !important;
+    opacity: 0;
+  }
+
+  // Grow out, grow + fade in
+  .DrillInLeaveActive {
+    transition: all 0.1s cubic-bezier(0, 0, 0, 1);
+  }
+
+  .DrillInLeaveTo {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+
+  .DrillInEnterActive {
+    transition: all 0.1s cubic-bezier(0, 0, 0, 1) 0.1s;
+  }
+
+  .DrillInEnterFrom {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  // Shrink out, shrink + fade in
+  .DrillOutLeaveActive {
+    transition: all 0.1s cubic-bezier(0, 0, 0, 1);
+  }
+
+  .DrillOutLeaveTo {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  .DrillOutEnterActive {
+    transition: all 0.1s cubic-bezier(0, 0, 0, 1) 0.1s;
+  }
+
+  .DrillOutEnterFrom {
+    transform: scale(1.05);
+    opacity: 0;
   }
 }

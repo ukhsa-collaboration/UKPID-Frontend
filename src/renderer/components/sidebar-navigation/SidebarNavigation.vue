@@ -1,6 +1,6 @@
 <template>
   <nav class="SidebarNavigation">
-    <div class="SidebarNavigation__Top">
+    <div class="Top">
       <SidebarNavigationItem route="dashboard"
         ><DashboardIcon
       /></SidebarNavigationItem>
@@ -15,7 +15,7 @@
       /></SidebarNavigationItem>
       <SidebarNavigationItem route="audit"><AuditIcon /></SidebarNavigationItem>
     </div>
-    <div class="SidebarNavigation__Bottom">
+    <div class="Bottom">
       <SidebarNavigationItem route="admin"><AdminIcon /></SidebarNavigationItem>
       <SidebarNavigationItem route="settings" :spin="true"
         ><SettingsIcon
@@ -41,7 +41,6 @@ import SettingsIcon from "@fluentui/svg-icons/icons/settings_20_regular.svg";
 .SidebarNavigation {
   background-color: var(--neutral-layer-2);
   width: 4.25rem;
-  user-select: none;
   height: calc(100% + #{fns.gap(0.25)});
   margin-top: calc(-1 * #{fns.gap(0.25)});
   margin-right: -1px;
@@ -51,7 +50,7 @@ import SettingsIcon from "@fluentui/svg-icons/icons/settings_20_regular.svg";
   overflow: hidden;
 }
 
-.SidebarNavigation__Top {
+.Top {
   overflow: auto;
 }
 </style>

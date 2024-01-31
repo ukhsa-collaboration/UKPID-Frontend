@@ -6,14 +6,14 @@
 </template>
 
 <script setup>
-import { capitalize } from "../util";
+import { capitalize } from "@/modules/util";
 
 const props = defineProps({
   status: {
     type: String,
     default: "unknown",
     validator: (value) =>
-      ["success", "pending", "fail", "unknown"].includes(value),
+      ["connected", "connecting", "disconnected", "unknown"].includes(value),
   },
 });
 </script>
@@ -29,16 +29,16 @@ const props = defineProps({
   align-items: center;
 }
 
-.Status--Success {
-  --status-color: var(--success);
+.Status--Connected {
+  --status-color: var(--color-status-success-foreground);
 }
 
-.Status--Pending {
-  --status-color: var(--warning);
+.Status--Connecting {
+  --status-color: var(--color-status-warning-foreground);
 }
 
-.Status--Fail {
-  --status-color: var(--danger);
+.Status--Disconnected {
+  --status-color: var(--color-status-danger-foreground);
 }
 
 .Status__Indicator {

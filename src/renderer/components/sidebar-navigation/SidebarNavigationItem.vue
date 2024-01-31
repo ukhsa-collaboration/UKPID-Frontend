@@ -1,30 +1,26 @@
 <template>
   <router-link
+    v-slot="{ isActive }"
     class="SidebarNavigationItem"
+    active-class="SidebarNavigationItem--Current"
     :class="{
-      'SidebarNavigationItem--Current': isCurrent,
       'SidebarNavigationItem--Spin': props.spin,
     }"
     :to="{ name: props.route }"
   >
     <Transition>
-      <div v-show="isCurrent" class="SidebarNavigationItem__Indicator"></div>
+      <div v-show="isActive" class="Indicator"></div>
     </Transition>
-    <div class="SidebarNavigationItem__Inner">
-      <span class="SidebarNavigationItem__Icon">
+    <div class="Inner">
+      <span class="Icon">
         <slot />
       </span>
-      <span class="SidebarNavigationItem__Label">{{
-        $t(`routes.${props.route}`)
-      }}</span>
+      <span class="Label">{{ $t(`routes.${props.route}._`) }}</span>
     </div>
   </router-link>
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-
 const props = defineProps({
   route: {
     type: String,
@@ -34,12 +30,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
-
-const currentRoute = useRoute();
-
-const isCurrent = computed(() => {
-  return currentRoute?.name === props.route;
 });
 </script>
 
@@ -105,7 +95,7 @@ const isCurrent = computed(() => {
   }
 }
 
-.SidebarNavigationItem__Indicator {
+.Indicator {
   width: 0;
   height: calc(100% - 20px);
   border-left: 1px solid var(--accent-fill-rest);
@@ -117,14 +107,13 @@ const isCurrent = computed(() => {
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-  .SidebarNavigationItem--Spin:active .SidebarNavigationItem__Icon {
+  .SidebarNavigationItem--Spin:active .Icon {
     transition: transform 0.2s linear;
     transform: rotate(-15deg);
     animation-name: none !important;
   }
 
-  .SidebarNavigationItem--Current.SidebarNavigationItem--Spin
-    .SidebarNavigationItem__Icon {
+  .SidebarNavigationItem--Current.SidebarNavigationItem--Spin .Icon {
     animation: full-spin 0.5s cubic-bezier(0, 0, 0, 1);
   }
 
@@ -139,7 +128,7 @@ const isCurrent = computed(() => {
   }
 }
 
-.SidebarNavigationItem__Inner {
+.Inner {
   opacity: var(--inner-opacity, 1);
   display: flex;
   gap: fns.gap(0.25);
@@ -148,12 +137,12 @@ const isCurrent = computed(() => {
   justify-content: center;
 }
 
-.SidebarNavigationItem__Icon::v-deep() svg {
+.Icon::v-deep() svg {
   display: block;
   fill: currentColor;
 }
 
-.SidebarNavigationItem__Label {
+.Label {
   font-size: var(--type-ramp-minus-2-font-size);
   line-height: var(--type-ramp-minus-2-line-height);
 }

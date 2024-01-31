@@ -2,22 +2,24 @@
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 
 import { buildingForTest } from "./main/util";
-
-const { contextBridge, ipcRenderer } = require("electron");
+import { exposeVersions } from "./preload/versions";
+import { exposeEnvironment } from "./preload/environment";
+import { exposeApplication } from "./preload/application";
+import { exposeConnection } from "./preload/connection";
+import { exposeAuth } from "./preload/auth";
+import { exposeUser } from "./preload/user";
+import { exposeApi } from "./preload/api";
+import { exposeNetwork } from "./preload/network";
 
 if (buildingForTest) {
   import("wdio-electron-service/preload");
 }
 
-contextBridge.exposeInMainWorld("versions", {
-  node: () => process.versions.node,
-  chrome: () => process.versions.chrome,
-  electron: () => process.versions.electron,
-});
-
-contextBridge.exposeInMainWorld("ukpid", {
-  isDevelopment: ipcRenderer.invoke("isDevelopment"),
-  isTest: ipcRenderer.invoke("isTest"),
-  isPrerelease: ipcRenderer.invoke("isPrerelease"),
-  isRelease: ipcRenderer.invoke("isRelease"),
-});
+exposeVersions();
+exposeEnvironment();
+exposeApplication();
+exposeNetwork();
+exposeConnection();
+exposeAuth();
+exposeUser();
+exposeApi();
