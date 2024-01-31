@@ -8,6 +8,7 @@ module.exports = {
   buildIdentifier: process.env.BUILD_IDENTIFIER ?? "release",
   packagerConfig: {
     asar: true,
+    icon: "forge/icons/icon",
     prune: process.env.NODE_ENV !== "test",
     appBundleId: fromBuildIdentifier({
       test: "co.uk.juicymedia.test.ukpid",
@@ -29,6 +30,9 @@ module.exports = {
     },
     {
       name: "@electron-forge/maker-dmg", // Mac
+      config: {
+        name: "UKPID",
+      },
     },
   ],
   plugins: [
@@ -51,7 +55,15 @@ module.exports = {
         renderer: [
           {
             name: "main_window",
-            config: "vite.renderer.config.mjs",
+            config: "vite.renderer.main.config.mjs",
+          },
+          {
+            name: "splash_window",
+            config: "vite.renderer.splash.config.mjs",
+          },
+          {
+            name: "loading_window",
+            config: "vite.renderer.loading.config.mjs",
           },
         ],
       },

@@ -1,6 +1,6 @@
-const { app } = require("electron");
-const path = require("node:path");
-const fs = require("fs");
+import { app } from "electron";
+import path from "node:path";
+import fs from "fs";
 
 let metadata = null;
 
