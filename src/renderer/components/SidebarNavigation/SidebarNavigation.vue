@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import SidebarNavigationItem from "@/components/sidebar-navigation/SidebarNavigationItem.vue";
+import SidebarNavigationItem from "@/components/SidebarNavigation/SidebarNavigationItem.vue";
 import DashboardIcon from "@fluentui/svg-icons/icons/home_20_regular.svg";
 import EnquiryIcon from "@fluentui/svg-icons/icons/document_multiple_20_regular.svg";
 import ReportIcon from "@fluentui/svg-icons/icons/data_pie_20_regular.svg";
@@ -40,7 +40,7 @@ import SettingsIcon from "@fluentui/svg-icons/icons/settings_20_regular.svg";
 
 .SidebarNavigation {
   background-color: var(--neutral-layer-2);
-  width: 4.25rem;
+  width: min(4.25rem, 99px);
   height: calc(100% + #{fns.gap(0.25)});
   margin-top: calc(-1 * #{fns.gap(0.25)});
   margin-right: -1px;

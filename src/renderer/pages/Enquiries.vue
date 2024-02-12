@@ -16,6 +16,7 @@
       fringilla odio, ut imperdiet est. Aliquam ipsum ipsum, euismod a venenatis
       ac, aliquam eu neque.
     </p>
+    <h2>{{ $t("Enquiries") }}</h2>
     <p>
       Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus
       posuere lorem eu est commodo vehicula. Proin condimentum vestibulum est
@@ -26,6 +27,7 @@
       nec, dignissim dignissim ex. Aliquam ac molestie lectus. Ut sed pulvinar
       nisl.
     </p>
+    <h3>{{ $t("Enquiries") }}</h3>
     <p>
       Aenean eleifend ullamcorper mattis. Nulla odio quam, fermentum ut volutpat
       scelerisque, aliquam quis mauris. Praesent id convallis turpis. Sed
@@ -35,6 +37,7 @@
       nisl sagittis consectetur. Sed sed arcu nec quam aliquet maximus eu vel
       lectus.
     </p>
+    <h4>{{ $t("Enquiries") }}</h4>
     <p>
       Etiam id ligula et libero placerat rutrum ac nec felis. Aliquam blandit
       odio in justo tincidunt dapibus. Mauris ac eros ullamcorper nibh ultricies
@@ -47,6 +50,7 @@
       eleifend sed, pharetra suscipit lectus. Aliquam erat volutpat. Donec eu
       ante eu nunc vulputate accumsan sit amet ac lorem.
     </p>
+    <h5>{{ $t("Enquiries") }}</h5>
     <p>
       Aenean non consequat ex. Maecenas vestibulum tristique urna. Maecenas non
       lectus nec ipsum bibendum maximus vitae vel nisl. Proin varius mollis
@@ -60,6 +64,7 @@
       tincidunt. Mauris lobortis diam ut ullamcorper ultricies. Donec tempor
       tempus congue. Sed lobortis lacus sit amet nisi convallis bibendum.
     </p>
+    <h6>{{ $t("Enquiries") }}</h6>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
       pulvinar nunc. Suspendisse suscipit leo eu convallis accumsan. Donec

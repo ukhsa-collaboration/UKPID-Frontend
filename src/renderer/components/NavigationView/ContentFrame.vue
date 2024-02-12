@@ -32,6 +32,9 @@ const props = defineProps({
   @extend %clean-child-margins;
 
   grid-area: content-header;
+  margin: 0 auto;
+  max-width: 62.5rem;
+  width: 100%;
 }
 
 .ContentBody {
@@ -39,6 +42,9 @@ const props = defineProps({
 
   height: 100%;
   grid-area: content-body;
+  margin: 0 auto;
+  max-width: 62.5rem;
+  width: 100%;
   overflow: auto;
   padding-right: var(--page-gap);
   padding-bottom: var(--page-gap);
@@ -47,6 +53,6 @@ const props = defineProps({
 .ContentBody.Grid {
   display: flex;
   flex-direction: column;
-  gap: fns.gap(1);
+  gap: fns.gap(0.5);
 }
 </style>

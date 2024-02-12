@@ -44,9 +44,9 @@ import { computed, ref } from "vue";
 import { useUserStore } from "@/stores/user";
 import { useTooltip } from "@/composables/tooltip";
 import { useConnectionStore } from "@/stores/connection";
-import FluentMenu from "@/components/menu/FluentMenu.vue";
-import FluentMenuItem from "@/components/menu/FluentMenuItem.vue";
-import MenuItemInfo from "@/components/menu/MenuItemInfo.vue";
+import FluentMenu from "@/components/Menu/FluentMenu.vue";
+import FluentMenuItem from "@/components/Menu/FluentMenuItem.vue";
+import MenuItemInfo from "@/components/Menu/MenuItemInfo.vue";
 import UserAvatar from "@/components/UserAvatar.vue";
 import FluentTooltip from "@/components/FluentTooltip.vue";
 

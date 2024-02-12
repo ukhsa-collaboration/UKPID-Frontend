@@ -7,7 +7,7 @@ const { t } = i18n.global;
 describe("Main Window", () => {
   before(logIntoTheApplication);
 
-  it("should open main window after login", async () => {
+  it("should allow the user to switch app theme", async () => {
     // Wait for main window to open
     await browser.waitUntil(
       async () => await switchToWindowByUrlPart("/main_window/index.html"),

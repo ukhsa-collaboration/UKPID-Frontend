@@ -3,7 +3,10 @@ import { getWindowTheme } from "../window-theme";
 import { buildingForTest } from "../util";
 import path from "node:path";
 import { showDevTools } from "../dev-tools";
-import { addDeveloperMenu } from "../menu/developer";
+
+export const mainWindowUrl =
+  MAIN_WINDOW_VITE_DEV_SERVER_URL ??
+  path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`);
 
 /**
  * @returns {Electron.CrossProcessExports.BrowserWindow}
@@ -26,15 +29,11 @@ export const createMainWindow = () => {
 
   // and load the index.html of the app.
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
-    window.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
+    window.loadURL(mainWindowUrl);
     showDevTools(window);
   } else {
-    window.loadFile(
-      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
-    );
+    window.loadFile(mainWindowUrl);
   }
-
-  addDeveloperMenu();
 
   return window;
 };

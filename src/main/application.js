@@ -7,7 +7,7 @@ import { setTheme } from "./window-theme";
 import { logout as authLogout } from "./auth";
 import userStore from "./stores/user";
 
-let ready = false;
+export let ready = false;
 /** @var {?Electron.BrowserWindow} splashWindow **/
 let splashWindow = null;
 /** @var {?Electron.BrowserWindow} mainWindow **/
@@ -67,6 +67,8 @@ export const launchMainApplicationWindow = () => {
     if (!splashWindow?.isDestroyed()) splashWindow.close();
     mainWindow.show();
   });
+
+  return mainWindow;
 };
 
 /**

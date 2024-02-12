@@ -4,10 +4,11 @@ import { safeStorage } from "electron";
 class UkpidStore extends ElectronStore {
   #encryptedEncoding = "latin1";
 
-  constructor(name, schema) {
+  constructor(name, schema, options) {
     super({
       name,
       schema,
+      ...options,
     });
   }
 

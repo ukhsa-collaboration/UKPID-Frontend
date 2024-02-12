@@ -1,8 +1,9 @@
 import "@/scss/base.scss";
 
 import "@/modules/sentry";
-import { createApp } from "vue";
+import "@/modules/textSize";
 import "@/modules/fluent";
+import { createApp } from "vue";
 import { i18n } from "@/modules/i18n.mjs";
 import Loading from "./Loading.vue";
 

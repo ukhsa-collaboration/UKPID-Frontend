@@ -1,6 +1,6 @@
 import "./main/path";
 import "./main/network";
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 import { buildingForTest } from "./main/util";
 import { registerDeepLinkHandler } from "./main/deep-links";
 import {
@@ -9,9 +9,12 @@ import {
 } from "./main/application";
 import * as Sentry from "@sentry/electron";
 import { startConnectionCheck } from "./main/connection-status";
+import "./main/settings";
+import { applyAppearance } from "./main/appearance";
+import { menuTemplate } from "./main/menu";
 
 Sentry.init({
-  dsn: "https://abcdb62a6145f7c68d987675268283a5@o4506234853457920.ingest.sentry.io/4506274745679872",
+  dsn: "https://ddf7ac754d3ab4d1580c1658cf1ae4b3@o4506234853457920.ingest.sentry.io/4506275793141760",
 });
 
 if (buildingForTest) {
@@ -36,6 +39,10 @@ app.on("window-all-closed", () => {
 // Start the application
 startApplication();
 startConnectionCheck();
+applyAppearance();
+
+const menu = Menu.buildFromTemplate(menuTemplate);
+Menu.setApplicationMenu(menu);
 
 app.on("activate", () => {
   // On OS X it's common to re-create a window in the app when the dock icon is clicked and there are no other windows open.

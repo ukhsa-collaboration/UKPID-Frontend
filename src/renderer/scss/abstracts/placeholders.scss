@@ -14,3 +14,11 @@
     margin-bottom: 0 !important;
   }
 }
+
+%focus-styles {
+  &:focus-visible {
+    outline: calc(var(--focus-stroke-width) * 1px) solid
+      var(--focus-stroke-outer);
+    outline-offset: calc(var(--focus-stroke-width) * -1px);
+  }
+}

@@ -1,7 +1,7 @@
 <template>
   <ContentFrame>
     <template #header>
-      <h2 class="Title2">{{ $t("About") }}</h2>
+      <ContentTitle>{{ $t("About") }}</ContentTitle>
     </template>
     <template #body>
       <div class="AppInfo">
@@ -29,8 +29,9 @@
 </template>
 
 <script setup>
-import ContentFrame from "@/components/navigation-view/ContentFrame.vue";
+import ContentFrame from "@/components/NavigationView/ContentFrame.vue";
 import Logo from "@/assets/UKPIDLogoColour.svg";
+import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
 </script>
 
 <style lang="scss">

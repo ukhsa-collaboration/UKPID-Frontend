@@ -91,3 +91,21 @@ export const screenshotDir = "test/screenshots";
 
 export const screenshot = (filename) =>
   browser.saveScreenshot(`${screenshotDir}/${filename}.png`);
+
+/**
+ * Retrieves the value of a CSS variable for a given element.
+ * @param {string} elementSelector - The CSS selector for the element.
+ * @param {string} variableName - The name of the CSS variable.
+ * @returns {string} The value of the CSS variable.
+ */
+export const getCssVariableValue = async (elementSelector, variableName) => {
+  return browser.execute(
+    (selector, varName) => {
+      const element = document.querySelector(selector);
+      if (!element) return null; // Element not found
+      return getComputedStyle(element).getPropertyValue(varName).trim();
+    },
+    elementSelector,
+    variableName,
+  );
+};

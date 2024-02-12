@@ -24,8 +24,8 @@
 </template>
 
 <script setup>
-import TitleBar from "@/components/title-bar/TitleBar.vue";
-import SidebarNavigation from "@/components/sidebar-navigation/SidebarNavigation.vue";
+import TitleBar from "@/components/TitleBar/TitleBar.vue";
+import SidebarNavigation from "@/components/SidebarNavigation/SidebarNavigation.vue";
 import { onBeforeMount, ref } from "vue";
 import { useUserStore } from "@/stores/user";
 import transitions from "@/modules/transitions";

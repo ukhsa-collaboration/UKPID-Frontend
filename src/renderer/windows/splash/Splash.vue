@@ -62,7 +62,7 @@ import FluentProgressRing from "@/components/FluentProgressRing.vue";
 import { onMounted, ref, toRaw } from "vue";
 import { useI18n } from "vue-i18n";
 import FluentButton from "@/components/FluentButton.vue";
-import TitleBar from "@/components/title-bar/TitleBar.vue";
+import TitleBar from "@/components/TitleBar/TitleBar.vue";
 import FluentMessageBar from "@/components/FluentMessageBar.vue";
 import { apiRequest } from "@/modules/apiRequest";
 
@@ -191,6 +191,7 @@ onMounted(async () => {
   line-height: var(--type-ramp-plus-2-line-height);
   margin-top: 0;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .LoginContainer {
