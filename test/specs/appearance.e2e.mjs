@@ -1,11 +1,11 @@
 import { browser } from "@wdio/globals";
 import i18n from "../../src/renderer/modules/i18n.mjs";
+import AppearanceScreen from "../screens/settings/AppearanceScreen.mjs";
 import {
   logIntoTheApplication,
   screenshot,
   switchToWindowByUrlPart,
 } from "../helpers.mjs";
-import AppearancePage from "../pages/settings/AppearancePage.mjs";
 
 const { t } = i18n.global;
 
@@ -23,7 +23,7 @@ describe("Appearance Settings", () => {
       },
     );
 
-    await AppearancePage.navigateTo();
+    await AppearanceScreen.navigateTo();
 
     await screenshot("appearance_settings");
   });
@@ -31,7 +31,7 @@ describe("Appearance Settings", () => {
   it("should switch app theme", async () => {
     let appBg;
 
-    const appThemeSelect = await AppearancePage.appThemeSelect;
+    const appThemeSelect = await AppearanceScreen.appThemeSelect;
     await appThemeSelect.waitForClickable();
     await appThemeSelect.click();
 
@@ -44,7 +44,7 @@ describe("Appearance Settings", () => {
     await darkOption.waitForClickable();
     await darkOption.click();
 
-    const appEl = await AppearancePage.appElement;
+    const appEl = await AppearanceScreen.appElement;
 
     await browser.waitUntil(
       async () =>
@@ -87,12 +87,12 @@ describe("Appearance Settings", () => {
   // });
 
   it("should change the text size", async () => {
-    const textSizeSlider = await AppearancePage.textSizeSlider;
+    const textSizeSlider = await AppearanceScreen.textSizeSlider;
 
-    const textSizeLabel = await AppearancePage.textSizeLabel;
+    const textSizeLabel = await AppearanceScreen.textSizeLabel;
     const initialLabelSize = await textSizeLabel.getCSSProperty("font-size");
 
-    const thumb = await AppearancePage.textSizeSliderThumb;
+    const thumb = await AppearanceScreen.textSizeSliderThumb;
     let startPosition = await thumb.getLocation();
 
     // Move the slider to the maximum
@@ -122,7 +122,7 @@ describe("Appearance Settings", () => {
       },
     ]);
 
-    await AppearancePage.textSizeApply.click();
+    await AppearanceScreen.textSizeApply.click();
 
     let labelSize = await textSizeLabel.getCSSProperty("font-size");
 
@@ -161,7 +161,7 @@ describe("Appearance Settings", () => {
       },
     ]);
 
-    await AppearancePage.textSizeApply.click();
+    await AppearanceScreen.textSizeApply.click();
 
     labelSize = await textSizeLabel.getCSSProperty("font-size");
 

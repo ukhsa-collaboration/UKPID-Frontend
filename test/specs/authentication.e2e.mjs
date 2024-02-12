@@ -1,11 +1,9 @@
 import { browser } from "@wdio/globals";
 import i18n from "../../src/renderer/modules/i18n.mjs";
-import {
-  screenshot,
-  setValueOfWebComponent,
-  switchToWindowByUrlPart,
-  ukpidUrl,
-} from "../helpers.mjs";
+import SplashWindowScreen from "../screens/SplashWindowScreen.mjs";
+import AuthenticationModalScreen from "../screens/AuthenticationModalScreen.mjs";
+import AccountScreen from "../screens/settings/AccountScreen.mjs";
+import { screenshot, setValueOfWebComponent } from "../helpers.mjs";
 
 const { t } = i18n.global;
 
@@ -18,11 +16,11 @@ describe("Authentication Process", () => {
       window.network.disconnect();
     });
 
-    const loginButton = await $(`fluent-button=${t("Log in")}`);
-    await loginButton.waitForClickable();
-    await loginButton.click();
+    const logInButton = await SplashWindowScreen.logInButton;
+    await logInButton.waitForClickable();
+    await logInButton.click();
 
-    const offlineMessage = await $('div[data-testid="offlineMessage"]');
+    const offlineMessage = await SplashWindowScreen.offlineMessage;
     await expect(offlineMessage).toHaveText(
       expect.stringContaining(t("Unable to connect to the UKPID server.")),
     );
@@ -37,20 +35,13 @@ describe("Authentication Process", () => {
   it("should display login window when login button is clicked", async () => {
     splashWindowHandle = await browser.getWindowHandle();
 
-    const loginButton = await $(`fluent-button=${t("Log in")}`);
-    await loginButton.waitForClickable();
+    const logInButton = await SplashWindowScreen.logInButton;
+    await logInButton.waitForClickable();
     await screenshot("splash_login");
-    await loginButton.click();
+    await logInButton.click();
 
     // Switch to login modal window
-    await browser.waitUntil(
-      async () => await switchToWindowByUrlPart(`${ukpidUrl}/login`),
-      {
-        timeout: 5000,
-        interval: 500,
-        timeoutMsg: "Expected the login window to open",
-      },
-    );
+    await AuthenticationModalScreen.switchToLoginWindow();
   });
 
   it("should allow user to log in", async () => {
@@ -59,18 +50,18 @@ describe("Authentication Process", () => {
     await expect($("h1")).toHaveText("Log in");
 
     await setValueOfWebComponent(
-      'fluent-text-field[name="email"]',
+      AuthenticationModalScreen.emailFieldSelector,
       "admin@juicy.media",
     );
 
     await setValueOfWebComponent(
-      'fluent-text-field[name="password"]',
+      AuthenticationModalScreen.passwordFieldSelector,
       "password",
     );
 
     await screenshot("ukpid_login");
 
-    await $("fluent-button=Log in").click();
+    await AuthenticationModalScreen.logInButton.click();
   });
 
   it("should close login window after successful login", async () => {
@@ -88,24 +79,11 @@ describe("Authentication Process", () => {
 
   it("should return to the splash screen after log out", async () => {
     // Wait for main window to open
-    await browser.waitUntil(
-      async () => await switchToWindowByUrlPart("/main_window/index.html"),
-      {
-        timeout: 5000,
-        interval: 500,
-        timeoutMsg: "Expected the main window to open",
-      },
-    );
+    await AccountScreen.switchToMainWindow();
 
-    const settingsButton = await $(`a=${t("routes.settings._")}`);
-    await settingsButton.waitForClickable();
-    await settingsButton.click();
+    await AccountScreen.navigateTo();
 
-    const accountButton = await $(`a=${t("routes.settings.account")}`);
-    await accountButton.waitForClickable();
-    await accountButton.click();
-
-    const logOutButton = await $(`fluent-button=${t("Log out")}`);
+    const logOutButton = await AccountScreen.logOutButton;
     await logOutButton.waitForClickable();
 
     await screenshot("account_logout");
@@ -113,14 +91,7 @@ describe("Authentication Process", () => {
     await logOutButton.click();
 
     // Wait for splash window to open
-    await browser.waitUntil(
-      async () => await switchToWindowByUrlPart("/splash_window/index.html"),
-      {
-        timeout: 5000,
-        interval: 500,
-        timeoutMsg: "Expected the splash window to open",
-      },
-    );
+    await SplashWindowScreen.switchToSplashWindow();
   });
 
   it("should allow the user to sign in as previously logged in user when offline", async () => {
@@ -128,51 +99,35 @@ describe("Authentication Process", () => {
       window.network.disconnect();
     });
 
-    const loginButton = await $(`fluent-button=${t("Log in")}`);
-    await loginButton.waitForClickable();
-    await loginButton.click();
+    const logInButton = await SplashWindowScreen.logInButton;
+    await logInButton.waitForClickable();
+    await logInButton.click();
 
-    const offlineMessage = await $('div[data-testid="offlineMessage"]');
+    const offlineMessage = await SplashWindowScreen.offlineMessage;
     await expect(offlineMessage).toHaveText(
       expect.stringContaining(t("Unable to connect to the UKPID server.")),
     );
 
     await screenshot("splash_offline_login");
 
-    const continueButton = await $(
-      `fluent-button=${t("Continue offline as {user}", { user: "Juicy Media" })}`,
-    );
+    const continueButton = await SplashWindowScreen.offlineContinueButton;
     await continueButton.waitForClickable();
     await continueButton.click();
 
     // Wait for main window to open
-    await browser.waitUntil(
-      async () => await switchToWindowByUrlPart("/main_window/index.html"),
-      {
-        timeout: 5000,
-        interval: 500,
-        timeoutMsg: "Expected the main window to open",
-      },
-    );
+    await AccountScreen.switchToMainWindow();
 
-    const settingsButton = await $(`a=${t("routes.settings._")}`);
-    await settingsButton.waitForClickable();
-    await settingsButton.click();
+    await AccountScreen.navigateTo();
 
-    const accountButton = await $(`a=${t("routes.settings.account")}`);
-    await accountButton.waitForClickable();
-    await accountButton.click();
-
-    const loggedInUser = await $('span[data-testid="loggedInUser"]');
+    const loggedInUser = await AccountScreen.loggedInUser;
     await expect(loggedInUser).toHaveText("Juicy Media");
 
-    const loggedInEmail = await $('span[data-testid="loggedInEmail"]');
+    const loggedInEmail = await AccountScreen.loggedInEmail;
     await expect(loggedInEmail).toHaveText("admin@juicy.media");
   });
 
-  it("should show not allow the user to log out when offline", async () => {
-    const logOutButton = await $(`fluent-button=${t("Log out")}`);
-    logOutButton.waitForEnabled({ reverse: true });
+  it("should not allow the user to log out when offline", async () => {
+    const logOutButton = await AccountScreen.logOutButton;
     await expect(logOutButton).toHaveAttr("disabled");
 
     await screenshot("account_offline");
@@ -183,18 +138,11 @@ describe("Authentication Process", () => {
       window.network.connect();
     });
 
-    const logOutButton = await $(`fluent-button=${t("Log out")}`);
+    const logOutButton = await AccountScreen.logOutButton;
     await logOutButton.waitForClickable();
     await logOutButton.click();
 
     // Wait for splash window to open
-    await browser.waitUntil(
-      async () => await switchToWindowByUrlPart("/splash_window/index.html"),
-      {
-        timeout: 5000,
-        interval: 500,
-        timeoutMsg: "Expected the splash window to open",
-      },
-    );
+    await SplashWindowScreen.switchToSplashWindow();
   });
 });

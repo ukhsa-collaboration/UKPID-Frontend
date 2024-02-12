@@ -1,6 +1,6 @@
-import SettingsPage from "./SettingsPage.mjs";
+import SettingsScreen from "./SettingsScreen.mjs";
 
-class AppearancePage extends SettingsPage {
+class AppearanceScreen extends SettingsScreen {
   async navigateTo() {
     await this.settingsButton.waitForClickable();
     await this.settingsButton.click();
@@ -42,4 +42,4 @@ class AppearancePage extends SettingsPage {
   }
 }
 
-export default new AppearancePage();
+export default new AppearanceScreen();

@@ -1,6 +1,6 @@
-import MainWindowPage from "../MainWindowPage.mjs";
+import MainWindowScreen from "../MainWindowScreen.mjs";
 
-export default class SettingsPage extends MainWindowPage {
+export default class SettingsScreen extends MainWindowScreen {
   get generalButton() {
     return $(`a=${this.t("routes.settings.general")}`);
   }

@@ -1,7 +1,19 @@
 import i18n from "../../src/renderer/modules/i18n.mjs";
+import { switchToWindowByUrlPart } from "../helpers.mjs";
 
-export default class MainWindowPage {
+export default class MainWindowScreen {
   t = i18n.global.t;
+
+  async switchToMainWindow() {
+    return await browser.waitUntil(
+      async () => await switchToWindowByUrlPart("/main_window/index.html"),
+      {
+        timeout: 5000,
+        interval: 500,
+        timeoutMsg: "Expected the main window to open",
+      },
+    );
+  }
 
   get appElement() {
     return $("#app");
@@ -31,3 +43,5 @@ export default class MainWindowPage {
     return $(`a=${this.t("routes.settings._")}`);
   }
 }
+
+export const MainScreen = new MainWindowScreen();
