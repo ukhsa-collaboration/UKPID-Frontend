@@ -34,10 +34,12 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-@use "@/scss/abstracts/mixins";
+@use "@/scss/abstracts/placeholders";
 @use "@/scss/abstracts/functions" as fns;
 
 .SidebarNavigationItem {
+  @extend %focus-styles;
+
   --link-color: var(--neutral-foreground-rest);
   --link-color-hover: var(--neutral-foreground-rest);
   --link-color-active: var(--neutral-foreground-rest);
@@ -143,7 +145,7 @@ const props = defineProps({
 }
 
 .Label {
-  font-size: var(--type-ramp-minus-2-font-size);
-  line-height: var(--type-ramp-minus-2-line-height);
+  font-size: min(14px, var(--type-ramp-minus-2-font-size));
+  line-height: min(20px, var(--type-ramp-minus-2-line-height));
 }
 </style>

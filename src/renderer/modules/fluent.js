@@ -29,6 +29,11 @@ import {
   fluentMenu,
   fluentMenuItem,
   fluentDivider,
+  fluentSwitch,
+  fluentSelect,
+  fluentOption,
+  fluentSlider,
+  fluentSliderLabel,
 } from "@fluentui/web-components";
 
 import { parseColorHexRGB } from "@microsoft/fast-colors";
@@ -42,32 +47,37 @@ provideFluentDesignSystem().register(
   fluentMenu(),
   fluentMenuItem(),
   fluentDivider(),
+  fluentSwitch(),
+  fluentSelect(),
+  fluentOption(),
+  fluentSlider(),
+  fluentSliderLabel(),
 );
 
 /**
  * Global App styles
  */
-const root = document.body;
+export const fluentTarget = document.body;
 
-typeRampMinus2FontSize.setValueFor(root, "0.625rem"); // 10px - Caption 2
-typeRampMinus1FontSize.setValueFor(root, "0.75rem"); // 12px - Caption 1
-typeRampBaseFontSize.setValueFor(root, "0.85rem"); // 14px - Body
-typeRampPlus1FontSize.setValueFor(root, "1rem"); // 16px - Subtitle 2
-typeRampPlus2FontSize.setValueFor(root, "1.25rem"); // 20px - Subtitle 1
-typeRampPlus3FontSize.setValueFor(root, "1.5rem"); // 24px - Title 3
-typeRampPlus4FontSize.setValueFor(root, "1.75rem"); // 28px - Title 2
-typeRampPlus5FontSize.setValueFor(root, "2rem"); // 32px - Title 1
-typeRampPlus6FontSize.setValueFor(root, "2.5rem"); // 40px - Title Large
+typeRampMinus2FontSize.setValueFor(fluentTarget, "0.625rem"); // 10px - Caption 2
+typeRampMinus1FontSize.setValueFor(fluentTarget, "0.75rem"); // 12px - Caption 1
+typeRampBaseFontSize.setValueFor(fluentTarget, "0.875rem"); // 14px - Body
+typeRampPlus1FontSize.setValueFor(fluentTarget, "1rem"); // 16px - Subtitle 2
+typeRampPlus2FontSize.setValueFor(fluentTarget, "1.25rem"); // 20px - Subtitle 1
+typeRampPlus3FontSize.setValueFor(fluentTarget, "1.5rem"); // 24px - Title 3
+typeRampPlus4FontSize.setValueFor(fluentTarget, "1.75rem"); // 28px - Title 2
+typeRampPlus5FontSize.setValueFor(fluentTarget, "2rem"); // 32px - Title 1
+typeRampPlus6FontSize.setValueFor(fluentTarget, "2.5rem"); // 40px - Title Large
 
-typeRampMinus2LineHeight.setValueFor(root, "0.875rem"); // 14px - Caption 2
-typeRampMinus1LineHeight.setValueFor(root, "1rem"); // 16px - Caption 1
-typeRampBaseLineHeight.setValueFor(root, "1.25rem"); // 20px - Body
-typeRampPlus1LineHeight.setValueFor(root, "1.375rem"); // 22px - Subtitle 2
-typeRampPlus2LineHeight.setValueFor(root, "1.625rem"); // 26px - Subtitle 1
-typeRampPlus3LineHeight.setValueFor(root, "2rem"); // 32px - Title 3
-typeRampPlus4LineHeight.setValueFor(root, "2.25rem"); // 36px - Title 2
-typeRampPlus5LineHeight.setValueFor(root, "2.5rem"); // 40px - Title 1
-typeRampPlus6LineHeight.setValueFor(root, "3.25rem"); // 52px - Title Large
+typeRampMinus2LineHeight.setValueFor(fluentTarget, "0.875rem"); // 14px - Caption 2
+typeRampMinus1LineHeight.setValueFor(fluentTarget, "1rem"); // 16px - Caption 1
+typeRampBaseLineHeight.setValueFor(fluentTarget, "1.25rem"); // 20px - Body
+typeRampPlus1LineHeight.setValueFor(fluentTarget, "1.375rem"); // 22px - Subtitle 2
+typeRampPlus2LineHeight.setValueFor(fluentTarget, "1.625rem"); // 26px - Subtitle 1
+typeRampPlus3LineHeight.setValueFor(fluentTarget, "2rem"); // 32px - Title 3
+typeRampPlus4LineHeight.setValueFor(fluentTarget, "2.25rem"); // 36px - Title 2
+typeRampPlus5LineHeight.setValueFor(fluentTarget, "2.5rem"); // 40px - Title 1
+typeRampPlus6LineHeight.setValueFor(fluentTarget, "3.25rem"); // 52px - Title Large
 
 /**
  * Colours
@@ -119,9 +129,9 @@ const colorStatusSuccessBackground = DesignToken.create(
 /**
  * Fonts
  */
-DesignToken.create("font-weight-normal").setValueFor(root, "400");
-DesignToken.create("font-weight-semibold").setValueFor(root, "600");
-DesignToken.create("font-weight-bold").setValueFor(root, "700");
+DesignToken.create("font-weight-normal").setValueFor(fluentTarget, "400");
+DesignToken.create("font-weight-semibold").setValueFor(fluentTarget, "600");
+DesignToken.create("font-weight-bold").setValueFor(fluentTarget, "700");
 
 /**
  * Apply the theme
@@ -143,17 +153,17 @@ export const setTheme = (target, isDark) => {
     navViewNavItemBackgroundHover.setValueFor(target, "#373737");
     navViewNavItemBackgroundActive.setValueFor(target, "#333333");
 
-    colorStatusDangerForeground.setValueFor(root, "#dc626d");
-    colorStatusDangerBorder.setValueFor(root, "#c50f1f");
-    colorStatusDangerBackground.setValueFor(root, "#3b0509");
+    colorStatusDangerForeground.setValueFor(target, "#dc626d");
+    colorStatusDangerBorder.setValueFor(target, "#c50f1f");
+    colorStatusDangerBackground.setValueFor(target, "#3b0509");
 
-    colorStatusWarningForeground.setValueFor(root, "#f98845");
-    colorStatusWarningBorder.setValueFor(root, "#f7630c");
-    colorStatusWarningBackground.setValueFor(root, "#4a1e04");
+    colorStatusWarningForeground.setValueFor(target, "#f98845");
+    colorStatusWarningBorder.setValueFor(target, "#f7630c");
+    colorStatusWarningBackground.setValueFor(target, "#4a1e04");
 
-    colorStatusSuccessForeground.setValueFor(root, "#54b054");
-    colorStatusSuccessBorder.setValueFor(root, "#107c10");
-    colorStatusSuccessBackground.setValueFor(root, "#052505");
+    colorStatusSuccessForeground.setValueFor(target, "#54b054");
+    colorStatusSuccessBorder.setValueFor(target, "#107c10");
+    colorStatusSuccessBackground.setValueFor(target, "#052505");
   } else {
     baseLayerLuminance.setValueFor(target, StandardLuminance.LightMode);
 
@@ -163,25 +173,28 @@ export const setTheme = (target, isDark) => {
     navViewNavItemBackgroundHover.setValueFor(target, "#EEEEEE");
     navViewNavItemBackgroundActive.setValueFor(target, "#F1F1F1");
 
-    colorStatusDangerForeground.setValueFor(root, "#b10e1c");
-    colorStatusDangerBorder.setValueFor(root, "#eeacb2");
-    colorStatusDangerBackground.setValueFor(root, "#fdf3f4");
+    colorStatusDangerForeground.setValueFor(target, "#b10e1c");
+    colorStatusDangerBorder.setValueFor(target, "#eeacb2");
+    colorStatusDangerBackground.setValueFor(target, "#fdf3f4");
 
-    colorStatusWarningForeground.setValueFor(root, "#bc4b09");
-    colorStatusWarningBorder.setValueFor(root, "#fdcfb4");
-    colorStatusWarningBackground.setValueFor(root, "#fff9f5");
+    colorStatusWarningForeground.setValueFor(target, "#bc4b09");
+    colorStatusWarningBorder.setValueFor(target, "#fdcfb4");
+    colorStatusWarningBackground.setValueFor(target, "#fff9f5");
 
-    colorStatusSuccessForeground.setValueFor(root, "#0e700e");
-    colorStatusSuccessBorder.setValueFor(root, "#9fd89f");
-    colorStatusSuccessBackground.setValueFor(root, "#f1faf1");
+    colorStatusSuccessForeground.setValueFor(target, "#0e700e");
+    colorStatusSuccessBorder.setValueFor(target, "#9fd89f");
+    colorStatusSuccessBackground.setValueFor(target, "#f1faf1");
   }
 };
 
 /**
  * Set Dark/Light mode and watch for changes
  */
-setTheme(root, window.matchMedia("(prefers-color-scheme: dark)").matches);
+setTheme(
+  fluentTarget,
+  window.matchMedia("(prefers-color-scheme: dark)").matches,
+);
 
 window
   .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", (e) => setTheme(root, e.matches));
+  .addEventListener("change", (e) => setTheme(fluentTarget, e.matches));

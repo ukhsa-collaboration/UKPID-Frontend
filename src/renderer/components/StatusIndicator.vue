@@ -43,8 +43,8 @@ const props = defineProps({
 
 .Status__Indicator {
   background-color: var(--status-color);
-  width: 1rem;
-  height: 1rem;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
 }
 </style>

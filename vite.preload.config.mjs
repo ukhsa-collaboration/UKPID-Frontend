@@ -13,6 +13,7 @@ export default defineConfig({
     sentryVitePlugin({
       org: "juicy-media-4r",
       project: "ukpid-desktop-app",
+      authToken: process.env.SENTRY_AUTH_TOKEN,
     }),
   ],
 });

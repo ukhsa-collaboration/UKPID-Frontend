@@ -24,6 +24,8 @@ export const i18nStrings = {
     "Logged in as {user}": "Logged in as {user}",
     "Log out": "Log out",
     "Version {version}": "Version {version}",
+    "Select a {0} to use this feature.": "Select a {0} to use this feature.",
+    "{zoom}%": "{zoom}%",
   },
 };
 

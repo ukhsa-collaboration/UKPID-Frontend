@@ -11,9 +11,9 @@
 
 <script setup>
 import { onBeforeMount, ref } from "vue";
-import TitleBarTitle from "@/components/title-bar/TitleBarTitle.vue";
-import TitleBarStatus from "@/components/title-bar/TitleBarStatus.vue";
-import TitleBarUser from "@/components/title-bar/TitleBarUser.vue";
+import TitleBarTitle from "@/components/TitleBar/TitleBarTitle.vue";
+import TitleBarStatus from "@/components/TitleBar/TitleBarStatus.vue";
+import TitleBarUser from "@/components/TitleBar/TitleBarUser.vue";
 
 const props = defineProps({
   content: {
@@ -42,6 +42,8 @@ onBeforeMount(async () => {
   top: env(titlebar-area-y);
   width: 100%;
   -webkit-app-region: drag;
+  font-size: min(16px, var(--type-ramp-base-font-size));
+  line-height: min(22px, var(--type-ramp-base-line-height));
 }
 
 .Content {

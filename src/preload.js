@@ -10,6 +10,8 @@ import { exposeAuth } from "./preload/auth";
 import { exposeUser } from "./preload/user";
 import { exposeApi } from "./preload/api";
 import { exposeNetwork } from "./preload/network";
+import { exposeSettings } from "./preload/settings";
+import { exposeNavigateTo } from "./preload/navigateTo";
 
 if (buildingForTest) {
   import("wdio-electron-service/preload");
@@ -23,3 +25,5 @@ exposeConnection();
 exposeAuth();
 exposeUser();
 exposeApi();
+exposeSettings();
+exposeNavigateTo();

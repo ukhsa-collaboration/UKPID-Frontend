@@ -20,13 +20,13 @@
 </template>
 
 <script setup>
-import NavigationItem from "@/components/navigation-view/NavigationItem.vue";
+import NavigationItem from "@/components/NavigationView/NavigationItem.vue";
 import GeneralIcon from "@fluentui/svg-icons/icons/app_generic_20_regular.svg";
 import AccountIcon from "@fluentui/svg-icons/icons/person_accounts_20_regular.svg";
 import NotificationIcon from "@fluentui/svg-icons/icons/badge_20_regular.svg";
 import AppearanceIcon from "@fluentui/svg-icons/icons/paint_brush_20_regular.svg";
 import AboutIcon from "@fluentui/svg-icons/icons/info_20_regular.svg";
-import NavigationView from "@/components/navigation-view/NavigationView.vue";
+import NavigationView from "@/components/NavigationView/NavigationView.vue";
 </script>
 
 <style lang="scss" scoped>

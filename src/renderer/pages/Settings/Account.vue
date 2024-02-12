@@ -1,7 +1,7 @@
 <template>
   <ContentFrame>
     <template #header>
-      <h2 class="Title2">{{ $t("Account") }}</h2>
+      <ContentTitle>{{ $t("Account") }}</ContentTitle>
     </template>
     <template #body>
       <div class="SettingsPage">
@@ -33,12 +33,13 @@
 
 <script setup>
 import { computed } from "vue";
-import ContentFrame from "@/components/navigation-view/ContentFrame.vue";
+import ContentFrame from "@/components/NavigationView/ContentFrame.vue";
 import { useUserStore } from "@/stores/user";
 import UserAvatar from "@/components/UserAvatar.vue";
 import FluentButton from "@/components/FluentButton.vue";
 import FluentMessageBar from "@/components/FluentMessageBar.vue";
 import { useConnectionStore } from "@/stores/connection";
+import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
 
 const userStore = useUserStore();
 const connection = useConnectionStore();

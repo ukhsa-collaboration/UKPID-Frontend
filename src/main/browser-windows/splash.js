@@ -3,7 +3,6 @@ import { getWindowTheme } from "../window-theme";
 import { buildingForTest } from "../util";
 import path from "node:path";
 import { showDevTools } from "../dev-tools";
-import { addDeveloperMenu } from "../menu/developer";
 
 /**
  * @returns {Electron.CrossProcessExports.BrowserWindow}
@@ -31,8 +30,6 @@ export const createSplashWindow = () => {
       path.join(__dirname, `../renderer/${SPLASH_WINDOW_VITE_NAME}/index.html`),
     );
   }
-
-  addDeveloperMenu();
 
   window.once("ready-to-show", () => {
     window.show();

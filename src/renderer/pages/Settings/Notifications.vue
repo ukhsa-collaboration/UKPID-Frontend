@@ -1,7 +1,7 @@
 <template>
   <ContentFrame>
     <template #header>
-      <h2 class="Title2">{{ $t("Notifications") }}</h2>
+      <ContentTitle>{{ $t("Notifications") }}</ContentTitle>
     </template>
     <template #body>
       <p>
@@ -129,7 +129,8 @@
 </template>
 
 <script setup>
-import ContentFrame from "@/components/navigation-view/ContentFrame.vue";
+import ContentFrame from "@/components/NavigationView/ContentFrame.vue";
+import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
 </script>
 
 <style lang="scss">
