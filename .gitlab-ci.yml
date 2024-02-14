@@ -32,7 +32,7 @@ npm:
   stage: preparation
   image: node:20-alpine
   script:
-    - npm install
+    - npm ci
   artifacts:
     paths:
       - ./node_modules
