@@ -5,7 +5,11 @@ import path from "node:path";
  * @returns {Electron.CrossProcessExports.BrowserView}
  */
 const createLoadingView = (window, width, height) => {
-  const view = new BrowserView();
+  const view = new BrowserView({
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+    },
+  });
 
   view.setBounds({ x: 0, y: 0, width, height });
 

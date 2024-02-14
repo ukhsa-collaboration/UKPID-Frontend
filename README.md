@@ -56,7 +56,7 @@ familiarise yourself with the contents of the `/docs` directory before contribut
 
 ## Contributing
 
-## CSS
+### CSS
 
 This application makes use of Vue's Single-File components. As such, the styling for a component should be included in a
 style tag within the component file. The CSS should be scoped, which allows us to write CSS specific to the component
@@ -64,7 +64,7 @@ without needing to worry about class naming schemes.
 
 On the rare occasion you need to write a global style, use the `base.scss` file.
 
-## NPM
+### NPM
 
 This project is configured to install npm packages as dev dependencies by default. The reason for this being that dev
 dependencies are excluded from the packaged application. These dependencies are either exclusively used for testing, or
@@ -76,7 +76,7 @@ For packages used by node in the main process, you'll need to pass `--save-prod`
 these as production dependencies which are included in the packaged app. If you encounter a module not found error when
 running a packaged build the cause is probably this.
 
-## Testing
+### Testing
 
 This project uses [WebdriverIO](https://webdriver.io/)(WDIO) for e2e and unit testing.
 
@@ -87,7 +87,7 @@ write can be tested in isolation, you should write a unit test.
 Tests are run automatically on merge requests, commits to the `main` branch, and on builds. Tests must pass for the
 merge request to be accepted and for the build to start.
 
-### WDIO
+#### WDIO
 
 WDIO runs against a built application, so before you run WDIO, you should build the application for testing by
 running `npm run package:test`.
