@@ -98,12 +98,6 @@ WDIO can then be run with `npm run test`.
 
 This project uses several tools to enforce code standards and style.
 
-<!-- /* @formatter:off */ -->
-
-![Screenshot from news satire programme The Day Today, showing Peter O'Hanraha-hanrahan with a quote that reads "I don't like it, but I'll have to go along with it](https://i.imgur.com/aYa6uPG.jpeg){width="200"}
-
-<!-- /* @formatter:on */ -->
-
 There's always debates to had over which code style is better, but they're not really important. These tools enforce one
 style and strive solve the issue of conflicts between developers. You might not like it, but just go along with it!
 
