@@ -42,7 +42,7 @@ You must have the following setup and ready to go before working on this project
 ### Setup
 
 1. Run `npm i` to install node modules
-   - 🤩 Add yourself to the contributors listed in the package.json file!
+   - Add yourself to the contributors listed in the package.json file!
 2. Run `npm run start` to start the application for development
 
 ## Documentation

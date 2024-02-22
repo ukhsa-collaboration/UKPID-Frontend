@@ -5,6 +5,7 @@
     "description": "UK Poisons Information Database",
     "private": true,
     "main": ".vite/build/main.js",
+    "license": "MIT",
     "scripts": {
         "start": "electron-forge start",
         "package": "cross-env BUILD_IDENTIFIER=release electron-forge package",
