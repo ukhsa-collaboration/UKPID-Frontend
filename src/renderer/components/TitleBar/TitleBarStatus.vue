@@ -13,12 +13,12 @@
     >
       {{ states[connection.status].label }}
     </StatusIndicator>
-    <FluentTooltip
+    <UkpidTooltip
       v-show="tooltipVisible && hasTooltip"
       id="status-tooltip"
-      ref="tooltip"
+      ref="tooltipEl"
       :style="floatingStyles"
-      >{{ states[connection.status].description }}</FluentTooltip
+      >{{ states[connection.status].description }}</UkpidTooltip
     >
   </div>
 </template>
@@ -28,7 +28,7 @@ import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useTooltip } from "@/composables/tooltip";
 import StatusIndicator from "@/components/StatusIndicator.vue";
-import FluentTooltip from "@/components/FluentTooltip.vue";
+import UkpidTooltip from "@/components/UkpidTooltip.vue";
 import { useConnectionStore } from "@/stores/connection";
 
 const { t } = useI18n();
@@ -46,10 +46,10 @@ const states = {
 
 const connection = useConnectionStore();
 const indicator = ref(null);
-const tooltip = ref(null);
+const tooltipEl = ref(null);
 
 const { tooltipVisible, showTooltip, hideTooltip, floatingStyles, placement } =
-  useTooltip(indicator, tooltip);
+  useTooltip({ referenceEl: indicator, tooltipEl });
 
 const hasTooltip = computed(() => {
   return !!states[connection.status]?.description;

@@ -1,6 +1,6 @@
 <template>
   <div class="Loading">
-    <FluentProgressRing
+    <UkpidProgressRing
       size="huge"
       :label="$t('Just a moment&hellip;')"
       label-position="below"
@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import FluentProgressRing from "@/components/FluentProgressRing.vue";
+import UkpidProgressRing from "@/components/UkpidProgressRing.vue";
 </script>
 
 <style lang="scss" scoped>

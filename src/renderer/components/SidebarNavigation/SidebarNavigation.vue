@@ -13,7 +13,9 @@
       <SidebarNavigationItem route="alerts"
         ><AlertIcon
       /></SidebarNavigationItem>
-      <SidebarNavigationItem route="audit"><AuditIcon /></SidebarNavigationItem>
+      <SidebarNavigationItem v-if="can('audit.read')" route="audit"
+        ><AuditIcon
+      /></SidebarNavigationItem>
     </div>
     <div class="Bottom">
       <SidebarNavigationItem route="admin"><AdminIcon /></SidebarNavigationItem>
@@ -33,6 +35,9 @@ import AlertIcon from "@fluentui/svg-icons/icons/alert_20_regular.svg";
 import AuditIcon from "@fluentui/svg-icons/icons/text_grammar_checkmark_20_regular.svg";
 import AdminIcon from "@fluentui/svg-icons/icons/text_bullet_list_square_shield_20_regular.svg";
 import SettingsIcon from "@fluentui/svg-icons/icons/settings_20_regular.svg";
+import { useUserCan } from "@/composables/userCan";
+
+const { can } = useUserCan();
 </script>
 
 <style lang="scss" scoped>

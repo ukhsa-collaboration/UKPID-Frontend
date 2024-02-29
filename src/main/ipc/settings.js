@@ -1,9 +1,7 @@
-import { ipcMain } from "electron";
-import { getTextSize, getTheme, setTextSize, setTheme } from "../settings";
+import { appearanceSettingsIpcHandlers } from "./settings/appearance";
+import { auditSettingsIpcHandlers } from "./settings/audit";
 
 export const settingsIpcHandlers = () => {
-  ipcMain.on("settings:setTheme", setTheme);
-  ipcMain.handle("settings:getTheme", getTheme);
-  ipcMain.on("settings:setTextSize", setTextSize);
-  ipcMain.handle("settings:getTextSize", getTextSize);
+  appearanceSettingsIpcHandlers();
+  auditSettingsIpcHandlers();
 };

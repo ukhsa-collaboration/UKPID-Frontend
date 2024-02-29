@@ -1,7 +1,7 @@
 <template>
   <MainWindowPage>
     <h1>{{ $t("Dashboard") }}</h1>
-    <FluentButton appearance="accent" @click="hello">Hello!</FluentButton>
+    <UkpidButton appearance="accent" @click="hello">Hello!</UkpidButton>
 
     <p id="msg">
       {{ msg }}
@@ -25,21 +25,21 @@
       Hover for a tooltip!
     </span>
 
-    <FluentTooltip
+    <UkpidTooltip
       v-show="tooltipVisible"
       id="tooltip"
-      ref="tooltip"
+      ref="tooltipEl"
       :style="floatingStyles"
       >This is the tooltip!
-    </FluentTooltip>
+    </UkpidTooltip>
   </MainWindowPage>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import MainWindowPage from "@/components/MainWindowPage.vue";
-import FluentButton from "@/components/FluentButton.vue";
-import FluentTooltip from "@/components/FluentTooltip.vue";
+import UkpidButton from "@/components/UkpidButton.vue";
+import UkpidTooltip from "@/components/UkpidTooltip.vue";
 import { useTooltip } from "@/composables/tooltip";
 import { apiRequest } from "@/modules/apiRequest";
 
@@ -64,14 +64,16 @@ const hello = async () => {
 };
 
 const tooltipTarget = ref(null);
-const tooltip = ref(null);
+const tooltipEl = ref(null);
 
 const { tooltipVisible, showTooltip, hideTooltip, floatingStyles } = useTooltip(
-  tooltipTarget,
-  tooltip,
+  {
+    referenceEl: tooltipTarget,
+    tooltipEl,
+  },
 );
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // tbc
 </style>

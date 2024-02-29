@@ -8,7 +8,6 @@ describe("Main Window", () => {
   before(logIntoTheApplication);
 
   it("should open main window after login", async () => {
-    // Wait for main window to open
     await MainScreen.switchToMainWindow();
 
     await expect($("h1")).toHaveText(t("Dashboard"));

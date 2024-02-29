@@ -5,15 +5,19 @@ const settingsStore = (uid) =>
     `User Settings/${uid}`,
     {
       additionalProperties: false,
-      theme: {
+      "appearance:theme": {
         type: "string",
         default: "system",
       },
-      textSize: {
+      "appearance:textSize": {
         type: "number",
         maximum: 2,
         minimum: 1,
         default: 1,
+      },
+      "audit:split": {
+        type: "boolean",
+        default: false,
       },
     },
     {

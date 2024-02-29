@@ -69,7 +69,7 @@ const labelPositionClass = computed(
 .HasLabel {
   display: inline-grid;
   grid-template-areas: "icon label";
-  gap: fns.gap(0.5);
+  gap: fns.gap(1);
   justify-items: center;
   align-items: center;
 }

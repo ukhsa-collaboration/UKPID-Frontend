@@ -1,13 +1,10 @@
 import { browser } from "@wdio/globals";
-import i18n from "../../src/renderer/modules/i18n.mjs";
 import AppearanceScreen from "../screens/settings/AppearanceScreen.mjs";
 import {
   logIntoTheApplication,
   screenshot,
   switchToWindowByUrlPart,
 } from "../helpers.mjs";
-
-const { t } = i18n.global;
 
 describe("Appearance Settings", () => {
   before(logIntoTheApplication);
@@ -29,8 +26,6 @@ describe("Appearance Settings", () => {
   });
 
   it("should switch app theme", async () => {
-    let appBg;
-
     const appThemeSelect = await AppearanceScreen.appThemeSelect;
     await appThemeSelect.waitForClickable();
     await appThemeSelect.click();

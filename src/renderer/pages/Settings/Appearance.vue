@@ -12,21 +12,21 @@
           {{ $t("Application theme") }}
         </template>
         <template #control>
-          <fluent-select
+          <UkpidSelect
             v-model="theme"
             :aria-labelledby="themeSetting?.label?.id"
             @change="setTheme"
           >
-            <fluent-option value="system" data-test="system">{{
+            <UkpidOption value="system" data-test="system">{{
               $t("Use system setting")
-            }}</fluent-option>
-            <fluent-option value="light" data-test="light">{{
+            }}</UkpidOption>
+            <UkpidOption value="light" data-test="light">{{
               $t("Light")
-            }}</fluent-option>
-            <fluent-option value="dark" data-test="dark">{{
+            }}</UkpidOption>
+            <UkpidOption value="dark" data-test="dark">{{
               $t("Dark")
-            }}</fluent-option>
-          </fluent-select>
+            }}</UkpidOption>
+          </UkpidSelect>
         </template>
       </SettingItem>
       <SettingItem ref="contrastSetting">
@@ -44,6 +44,7 @@
         <template #control>
           <i18n-t
             v-if="isWindows"
+            scope="global"
             keypath="Select a {0} to use this feature."
             tag="span"
             class="Caption1"
@@ -70,7 +71,7 @@
 
             <div class="TextSizeControl">
               <span style="font-size: 16px">A</span>
-              <FluentSlider
+              <UkpidSlider
                 v-model="textSize"
                 :aria-labelledby="textSizeSetting?.label?.id"
                 step="0.1"
@@ -80,13 +81,13 @@
               />
               <span style="font-size: 32px; margin-top: -2px">A</span>
             </div>
-            <FluentButton
+            <UkpidButton
               :disabled="
                 parseFloat(savedTextSize, 10) === parseFloat(textSize, 10)
               "
               data-testid="text-size-apply"
               @click="setTextSize"
-              >{{ $t("Apply") }}</FluentButton
+              >{{ $t("Apply") }}</UkpidButton
             >
           </div>
         </template>
@@ -100,12 +101,14 @@ import { onBeforeMount, ref } from "vue";
 import ContentFrame from "@/components/NavigationView/ContentFrame.vue";
 import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
 import SettingItem from "@/components/SettingItem.vue";
-import FluentSlider from "@/components/FluentSlider.vue";
-import FluentButton from "@/components/FluentButton.vue";
+import UkpidSlider from "@/components/UkpidSlider.vue";
+import UkpidButton from "@/components/UkpidButton.vue";
 import ThemeIcon from "@fluentui/svg-icons/icons/color_24_regular.svg";
 import ContrastIcon from "@fluentui/svg-icons/icons/dark_theme_24_regular.svg";
 import TextIcon from "@fluentui/svg-icons/icons/text_font_size_24_regular.svg";
 import { useOS } from "@/composables/os";
+import UkpidOption from "@/components/UkpidOption.vue";
+import UkpidSelect from "@/components/UkpidSelect.vue";
 
 const { isWindows } = useOS();
 
@@ -118,29 +121,29 @@ const textSizeSetting = ref(null);
 const initialTextSizeSet = ref(false);
 
 onBeforeMount(async () => {
-  theme.value = await window.settings.getTheme();
-  textSize.value = await window.settings.getTextSize();
+  theme.value = await window.appearanceSettings.getTheme();
+  textSize.value = await window.appearanceSettings.getTextSize();
   savedTextSize.value = textSize.value;
   initialTextSizeSet.value = true;
 
-  window.settings.onTextSize((_ev, zoom) => {
+  window.appearanceSettings.onTextSize((_ev, zoom) => {
     textSize.value = zoom;
     savedTextSize.value = zoom;
   });
 });
 
 const setTheme = () => {
-  window.settings.setTheme(theme.value);
+  window.appearanceSettings.setTheme(theme.value);
 };
 
 const setTextSize = () => {
   if (initialTextSizeSet.value) {
-    window.settings.setTextSize(textSize.value);
+    window.appearanceSettings.setTextSize(textSize.value);
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/scss/abstracts/placeholders";
 @use "@/scss/abstracts/functions" as fns;
 

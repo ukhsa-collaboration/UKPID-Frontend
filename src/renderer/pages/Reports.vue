@@ -8,6 +8,6 @@
 import MainWindowPage from "@/components/MainWindowPage.vue";
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // tbc
 </style>

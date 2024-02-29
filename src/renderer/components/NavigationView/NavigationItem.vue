@@ -145,7 +145,7 @@ const props = defineProps({
   justify-self: center;
 }
 
-.Icon::v-deep() svg {
+.Icon:deep(svg) {
   display: block;
   fill: currentColor;
 }

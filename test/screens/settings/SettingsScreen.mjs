@@ -13,6 +13,9 @@ export default class SettingsScreen extends MainWindowScreen {
   get appearanceButton() {
     return $(`a=${this.t("routes.settings.appearance")}`);
   }
+  get auditButton() {
+    return $(`a=${this.t("routes.settings.audit")}`);
+  }
   get aboutButton() {
     return $(`a=${this.t("routes.settings.about")}`);
   }

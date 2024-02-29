@@ -1,12 +1,14 @@
 import { ref } from "vue";
 import { useFloating, flip, autoUpdate, shift } from "@floating-ui/vue";
 
-export const useTooltip = (
+export const useTooltip = ({
   referenceEl,
   tooltipEl,
   tooltipPlacement = "bottom",
   delay = 250,
-) => {
+  tooltipShowCallback = null,
+  tooltipHideCallback = null,
+}) => {
   const tooltipVisible = ref(false);
   let showTimeout;
 
@@ -15,6 +17,8 @@ export const useTooltip = (
 
     showTimeout = setTimeout(() => {
       tooltipVisible.value = true;
+
+      if (typeof tooltipShowCallback === "function") tooltipShowCallback();
     }, delay);
   };
 
@@ -22,6 +26,7 @@ export const useTooltip = (
     clearTimeout(showTimeout);
     showTimeout = null;
     tooltipVisible.value = false;
+    if (typeof tooltipHideCallback === "function") tooltipHideCallback();
   };
 
   const { floatingStyles, placement } = useFloating(referenceEl, tooltipEl, {

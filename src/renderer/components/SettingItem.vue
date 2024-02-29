@@ -42,7 +42,7 @@ defineExpose({ label });
   flex-wrap: wrap;
   justify-content: space-between;
   padding: fns.gap(1);
-  background: var(--neutral-fill-rest);
+  background: var(--settings-item-background);
   border: calc(var(--stroke-width) * 1px) solid var(--neutral-stroke-layer-rest);
   border-radius: calc(var(--control-corner-radius) * 1px);
   gap: var(--setting-gap);
@@ -63,7 +63,7 @@ defineExpose({ label });
   grid-area: icon;
 }
 
-.Icon::v-deep() svg {
+.Icon:deep(svg) {
   display: block;
   fill: currentColor;
 }

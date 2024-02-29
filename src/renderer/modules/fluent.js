@@ -34,6 +34,7 @@ import {
   fluentOption,
   fluentSlider,
   fluentSliderLabel,
+  neutralLayerFloating,
 } from "@fluentui/web-components";
 
 import { parseColorHexRGB } from "@microsoft/fast-colors";
@@ -96,6 +97,8 @@ const navViewNavItemBackgroundActive = DesignToken.create(
   "nav-view-nav-item-background-active",
 );
 
+const settingsItemBackground = DesignToken.create("settings-item-background");
+
 const colorStatusDangerForeground = DesignToken.create(
   "color-status-danger-foreground",
 );
@@ -153,6 +156,8 @@ export const setTheme = (target, isDark) => {
     navViewNavItemBackgroundHover.setValueFor(target, "#373737");
     navViewNavItemBackgroundActive.setValueFor(target, "#333333");
 
+    settingsItemBackground.setValueFor(target, "#2d2d2d");
+
     colorStatusDangerForeground.setValueFor(target, "#dc626d");
     colorStatusDangerBorder.setValueFor(target, "#c50f1f");
     colorStatusDangerBackground.setValueFor(target, "#3b0509");
@@ -172,6 +177,8 @@ export const setTheme = (target, isDark) => {
 
     navViewNavItemBackgroundHover.setValueFor(target, "#EEEEEE");
     navViewNavItemBackgroundActive.setValueFor(target, "#F1F1F1");
+
+    settingsItemBackground.setValueFor(target, "#fefefe");
 
     colorStatusDangerForeground.setValueFor(target, "#b10e1c");
     colorStatusDangerBorder.setValueFor(target, "#eeacb2");

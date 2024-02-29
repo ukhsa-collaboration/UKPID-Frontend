@@ -133,6 +133,6 @@ import ContentFrame from "@/components/NavigationView/ContentFrame.vue";
 import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // tbc
 </style>
