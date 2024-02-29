@@ -1,12 +1,7 @@
-import { contextBridge, ipcRenderer } from "electron";
+import { exposeAppearanceSettings } from "./settings/appearance";
+import { exposeAuditSettings } from "./settings/audit";
 
 export const exposeSettings = () => {
-  contextBridge.exposeInMainWorld("settings", {
-    setTheme: (value) => ipcRenderer.send("settings:setTheme", value),
-    getTheme: () => ipcRenderer.invoke("settings:getTheme"),
-    setTextSize: (value) => ipcRenderer.send("settings:setTextSize", value),
-    getTextSize: () => ipcRenderer.invoke("settings:getTextSize"),
-    onTextSize: (callback) =>
-      ipcRenderer.on("settings:textSizeChanged", callback),
-  });
+  exposeAppearanceSettings();
+  exposeAuditSettings();
 };

@@ -1,6 +1,7 @@
 <template>
   <MainWindowPage class="Page">
-    <div class="NavigationView">
+    <UkpidOffline v-if="!props.worksOffline && !isConnected()" />
+    <div v-else class="NavigationView">
       <div class="NavigationHeader">
         <h1 class="Title2"><slot name="navigation-title" /></h1>
       </div>
@@ -31,11 +32,21 @@
 </template>
 
 <script setup>
-import MainWindowPage from "@/components/MainWindowPage.vue";
-import transitions from "@/modules/transitions";
 import { ref } from "vue";
+import transitions from "@/modules/transitions";
+import MainWindowPage from "@/components/MainWindowPage.vue";
+import UkpidOffline from "@/components/UkpidOffline.vue";
+import { useConnectionStore } from "@/stores/connection";
+
+const props = defineProps({
+  worksOffline: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const transition = ref("entrance");
+const { isConnected } = useConnectionStore();
 </script>
 
 <style lang="scss" scoped>

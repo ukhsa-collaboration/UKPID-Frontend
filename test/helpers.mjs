@@ -49,7 +49,10 @@ export const switchToWindowByUrlPart = async (part) => {
   return false;
 };
 
-export const logIntoTheApplication = async () => {
+export const logIntoTheApplication = async (
+  email = "admin@juicy.media",
+  password = "password",
+) => {
   const loginButton = await $(`fluent-button=${t("Log in")}`);
 
   await loginButton.click();
@@ -67,15 +70,9 @@ export const logIntoTheApplication = async () => {
 
   await expect($("h1")).toHaveText("Log in");
 
-  await setValueOfWebComponent(
-    'fluent-text-field[name="email"]',
-    "admin@juicy.media",
-  );
+  await setValueOfWebComponent('fluent-text-field[name="email"]', email);
 
-  await setValueOfWebComponent(
-    'fluent-text-field[name="password"]',
-    "password",
-  );
+  await setValueOfWebComponent('fluent-text-field[name="password"]', password);
 
   await $("fluent-button=Log in").click();
   await browser.waitUntil(
@@ -85,6 +82,21 @@ export const logIntoTheApplication = async () => {
       timeoutMsg: "Expected login window to close",
     },
   );
+};
+
+export const logOut = async () => {
+  const { default: SplashWindowScreen } = await import(
+    "./screens/SplashWindowScreen.mjs"
+  );
+  const { default: AccountScreen } = await import(
+    "./screens/settings/AccountScreen.mjs"
+  );
+
+  await AccountScreen.navigateTo();
+  const logOutButton = await AccountScreen.logOutButton;
+  await logOutButton.waitForClickable();
+  await logOutButton.click();
+  await SplashWindowScreen.switchToSplashWindow();
 };
 
 export const screenshotDir = "test/screenshots";

@@ -31,8 +31,13 @@ export default class MainWindowScreen {
   get alertsButton() {
     return $(`a=${this.t("routes.alerts._")}`);
   }
+
+  get auditButtonSelector() {
+    return `a=${this.t("routes.audit._")}`;
+  }
+
   get auditButton() {
-    return $(`a=${this.t("routes.audit._")}`);
+    return $(this.auditButtonSelector);
   }
 
   get adminButton() {

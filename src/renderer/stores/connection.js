@@ -12,7 +12,10 @@ export const useConnectionStore = defineStore("connection", () => {
     status.value = connStatus;
   });
 
+  const isConnected = () => status.value === "connected";
+
   return {
     status,
+    isConnected,
   };
 });

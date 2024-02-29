@@ -9,7 +9,7 @@ import {
 } from "./main/application";
 import * as Sentry from "@sentry/electron";
 import { startConnectionCheck } from "./main/connection-status";
-import "./main/settings";
+import "./main/settings/userSettingsStore"; // Init the settings store
 import { applyAppearance } from "./main/appearance";
 import { menuTemplate } from "./main/menu";
 

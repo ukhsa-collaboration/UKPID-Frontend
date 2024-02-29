@@ -1,6 +1,6 @@
 import { app, shell } from "electron";
 import { isDevelopment, isMac, isTest } from "./environment";
-import { getTextSize, setTextSize } from "./settings";
+import { getTextSize, setTextSize } from "./settings/appearance";
 import { connect, disconnect } from "./network";
 import { openAbout, openNewEnquiry } from "./ipc/navigation";
 

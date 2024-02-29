@@ -34,7 +34,7 @@ import Logo from "@/assets/UKPIDLogoColour.svg";
 import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/scss/abstracts/functions" as fns;
 @use "@/scss/abstracts/placeholders";
 

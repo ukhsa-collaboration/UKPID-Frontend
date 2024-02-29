@@ -4,6 +4,7 @@ import Account from "@/pages/Settings/Account.vue";
 import Notifications from "@/pages/Settings/Notifications.vue";
 import Appearance from "@/pages/Settings/Appearance.vue";
 import About from "@/pages/Settings/About.vue";
+import Audit from "@/pages/Settings/Audit.vue";
 
 const namespace = "settings";
 export default {
@@ -29,6 +30,11 @@ export default {
       path: "appearance",
       name: `${namespace}.appearance`,
       component: Appearance,
+    },
+    {
+      path: "audit",
+      name: `${namespace}.audit`,
+      component: Audit,
     },
     {
       path: "about",

@@ -55,6 +55,16 @@ body {
   box-sizing: inherit;
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .Caption2 {
   font-size: var(--type-ramp-minus-2-font-size);
   line-height: var(--type-ramp-minus-2-line-height);

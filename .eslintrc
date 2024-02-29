@@ -4,7 +4,10 @@
     "browser": true,
     "node": true
   },
-  "plugins": ["wdio", "prefer-arrow-functions"],
+  "plugins": [
+    "wdio",
+    "prefer-arrow-functions"
+  ],
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "ecmaVersion": "latest"
@@ -24,11 +27,15 @@
         "returnStyle": "unchanged",
         "singleReturnOnly": false
       }
-    ]
+    ],
+    "vue/no-deprecated-slot-attribute": "off"
   },
   "overrides": [
     {
-      "files": ["src/renderer/pages/**/*.vue", "src/renderer/windows/**/*.vue"],
+      "files": [
+        "src/renderer/pages/**/*.vue",
+        "src/renderer/windows/**/*.vue"
+      ],
       "rules": {
         "vue/multi-word-component-names": "off"
       }

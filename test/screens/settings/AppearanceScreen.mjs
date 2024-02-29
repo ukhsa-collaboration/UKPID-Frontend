@@ -14,8 +14,7 @@ class AppearanceScreen extends SettingsScreen {
       const label = await $(`p=${this.t("Application theme")}`);
       const labelId = await label.getAttribute("id");
 
-      const select = `fluent-select[aria-labelledby=${labelId}]`;
-      return await $(select);
+      return await $(`fluent-select[aria-labelledby=${labelId}]`);
     })();
   }
 
@@ -28,8 +27,7 @@ class AppearanceScreen extends SettingsScreen {
       const label = await this.textSizeLabel;
       const labelId = await label.getAttribute("id");
 
-      const slider = `fluent-slider[aria-labelledby=${labelId}]`;
-      return await $(slider);
+      return await $(`fluent-slider[aria-labelledby=${labelId}]`);
     })();
   }
 

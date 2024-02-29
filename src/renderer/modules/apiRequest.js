@@ -2,6 +2,7 @@ import { AuthWindowClosedError } from "@/errors/AuthWindowClosedError";
 import { AuthTimeoutError } from "@/errors/AuthTimeoutError";
 import { ApiError } from "@/errors/ApiError";
 import { LoginRequestedError } from "@/errors/LoginRequestedError";
+import { UnauthenticatedError } from "@/errors/UnauthenticatedError";
 
 export const apiRequest = async (
   { key, method, waitForLogin = true },
@@ -53,11 +54,23 @@ export const apiRequest = async (
             1000 * 60 * 5,
           );
         } else {
-          return reject(
-            new ApiError(res.electronError.message, {
-              cause: res.electronError,
-            }),
-          );
+          let cause = undefined;
+
+          try {
+            cause = JSON.parse(res.electronError.cause);
+          } catch (e) {}
+
+          let err;
+
+          if (cause?.status === 403) {
+            err = new UnauthenticatedError();
+          } else {
+            err = new ApiError(res.electronError.message, {
+              cause,
+            });
+          }
+
+          return reject(err);
         }
       } else {
         return resolve(res);

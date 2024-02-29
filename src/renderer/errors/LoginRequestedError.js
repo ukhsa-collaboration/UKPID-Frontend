@@ -1,6 +1,6 @@
 export class LoginRequestedError extends Error {
-  constructor(message) {
-    super(message);
+  constructor(...args) {
+    super(...args);
     this.name = "LoginRequestedError";
   }
 }

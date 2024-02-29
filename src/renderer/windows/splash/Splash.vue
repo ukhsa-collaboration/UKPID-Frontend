@@ -9,7 +9,7 @@
         </h1>
       </div>
 
-      <FluentProgressRing
+      <UkpidProgressRing
         v-if="loading"
         size="huge"
         :label="label"
@@ -17,7 +17,7 @@
       />
 
       <div v-else class="LoginContainer">
-        <FluentMessageBar
+        <UkpidMessageBar
           v-if="error || offline"
           :compact="true"
           intent="warning"
@@ -40,31 +40,32 @@
           <template v-else #message
             >{{ $t("Check your connection and try again.") }}
           </template>
-        </FluentMessageBar>
+        </UkpidMessageBar>
 
-        <div v-if="needsLogin || offline" class="ButtonContainer">
-          <FluentButton v-if="needsLogin" appearance="accent" @click="login"
+        <UkpidButtonGroup v-if="needsLogin || offline">
+          <UkpidButton v-if="needsLogin" appearance="accent" @click="login"
             >{{ $t("Log in") }}
-          </FluentButton>
-          <FluentButton v-if="offline" appearance="accent" @click="launch"
+          </UkpidButton>
+          <UkpidButton v-if="offline" appearance="accent" @click="launch"
             >{{ $t("Continue offline as {user}", { user: user.name }) }}
-          </FluentButton>
-        </div>
+          </UkpidButton>
+        </UkpidButtonGroup>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { captureMessage } from "@sentry/electron";
-import Logo from "@/assets/UKPIDLogoColour.svg";
-import FluentProgressRing from "@/components/FluentProgressRing.vue";
 import { onMounted, ref, toRaw } from "vue";
 import { useI18n } from "vue-i18n";
-import FluentButton from "@/components/FluentButton.vue";
-import TitleBar from "@/components/TitleBar/TitleBar.vue";
-import FluentMessageBar from "@/components/FluentMessageBar.vue";
+import { captureMessage } from "@sentry/electron";
 import { apiRequest } from "@/modules/apiRequest";
+import TitleBar from "@/components/TitleBar/TitleBar.vue";
+import Logo from "@/assets/UKPIDLogoColour.svg";
+import UkpidMessageBar from "@/components/UkpidMessageBar.vue";
+import UkpidButtonGroup from "@/components/UkpidButtonGroup.vue";
+import UkpidButton from "@/components/UkpidButton.vue";
+import UkpidProgressRing from "@/components/UkpidProgressRing.vue";
 
 const { t } = useI18n();
 
@@ -199,11 +200,5 @@ onMounted(async () => {
   flex-direction: column;
   align-items: center;
   gap: fns.gap(1);
-}
-
-.ButtonContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: fns.gap(1) fns.gap(0.5);
 }
 </style>

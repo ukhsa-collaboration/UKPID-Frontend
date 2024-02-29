@@ -37,7 +37,7 @@ $sizes: 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96, 120, 128;
   }
 }
 
-.UserAvatar::v-deep() svg {
+.UserAvatar:deep(svg) {
   display: block;
   fill: currentColor;
   width: 62.5%;

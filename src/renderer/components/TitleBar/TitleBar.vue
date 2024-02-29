@@ -13,7 +13,6 @@
 import { onBeforeMount, ref } from "vue";
 import TitleBarTitle from "@/components/TitleBar/TitleBarTitle.vue";
 import TitleBarStatus from "@/components/TitleBar/TitleBarStatus.vue";
-import TitleBarUser from "@/components/TitleBar/TitleBarUser.vue";
 
 const props = defineProps({
   content: {

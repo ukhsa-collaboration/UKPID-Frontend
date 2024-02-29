@@ -3,6 +3,7 @@ import { getAccessToken } from "../auth";
 export const request = async ({
   endpoint,
   options = {},
+  queryParams = null,
   useAuth = true,
   ipcEvent = null,
 }) => {
@@ -15,9 +16,13 @@ export const request = async ({
 
     const baseURL = import.meta.env.UKPID_API_BASE_URL;
 
-    const url = `${baseURL.replace(/\/?$/, "/")}${
-      endpoint.startsWith("/") ? endpoint.slice(1) : endpoint
-    }`;
+    const url = new URL(
+      `${baseURL.replace(/\/?$/, "/")}${
+        endpoint.startsWith("/") ? endpoint.slice(1) : endpoint
+      }`,
+    );
+
+    if (queryParams) url.search = new URLSearchParams(queryParams).toString();
 
     const headersInit = {
       "Content-Type": "application/json",
@@ -30,20 +35,24 @@ export const request = async ({
 
     const headers = new Headers(headersInit);
 
-    const response = await fetch(url, { headers, ...options });
+    console.log(url.toString());
+
+    const response = await fetch(url.toString(), { headers, ...options });
 
     if (!response.ok) {
       if (response?.status === 401) {
-        // TODO Unauthed - return to this when auth gates are implemented server side
-        // Check if response mentions the user not being logged in, or the user not having permission
-        // If the latter, return a permission error?
-        // Else, refresh token and try request again
+        // refresh token and try request again
         // If that fails, return auth error??
-        console.log("401", response.text());
+        // {"message":"Unauthenticated."} - user doesn't exist
+
+        console.log("401", await response.text(), accessToken);
       }
 
       throw new Error(`HTTP error! status: ${response.status}`, {
-        cause: response,
+        cause: JSON.stringify({
+          status: response?.status,
+          body: response?.text(),
+        }),
       });
     }
 

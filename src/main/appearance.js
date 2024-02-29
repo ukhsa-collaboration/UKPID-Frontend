@@ -1,5 +1,5 @@
 import { nativeTheme } from "electron";
-import { getTheme, getTextSize } from "./settings";
+import { getTheme, getTextSize } from "./settings/appearance";
 import { sendToAll } from "./web-contents";
 
 export const applyTheme = () => {
@@ -7,7 +7,7 @@ export const applyTheme = () => {
 };
 
 export const applyTextSize = () => {
-  sendToAll("settings:textSizeChanged", getTextSize());
+  sendToAll("settings:appearance:textSizeChanged", getTextSize());
 };
 
 export const applyAppearance = () => {

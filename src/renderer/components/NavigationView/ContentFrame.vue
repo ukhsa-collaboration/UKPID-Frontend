@@ -33,7 +33,7 @@ const props = defineProps({
 
   grid-area: content-header;
   margin: 0 auto;
-  max-width: 62.5rem;
+  max-width: 64rem;
   width: 100%;
 }
 
@@ -43,7 +43,7 @@ const props = defineProps({
   height: 100%;
   grid-area: content-body;
   margin: 0 auto;
-  max-width: 62.5rem;
+  max-width: 64rem;
   width: 100%;
   overflow: auto;
   padding-right: var(--page-gap);

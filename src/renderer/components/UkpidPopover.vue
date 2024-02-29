@@ -1,6 +1,6 @@
 <template>
   <div class="Container" role="tooltip">
-    <div class="Tooltip"><slot /></div>
+    <div class="Popover"><slot /></div>
   </div>
 </template>
 
@@ -13,15 +13,13 @@
   z-index: 9999;
 }
 
-.Tooltip {
+.Popover {
   box-shadow: var(--elevation-shadow-tooltip);
-  padding: fns.gap(0.25) fns.gap(0.75);
+  padding: fns.gap(0.5) fns.gap(0.75);
   border: calc(var(--stroke-width) * 1px) solid transparent;
   overflow-wrap: break-word;
   cursor: default;
   max-width: 240px;
-  font-size: var(--type-ramp-minus-1-font-size);
-  line-height: var(--type-ramp-minus-1-line-height);
   border-radius: calc(var(--control-corner-radius) * 1px);
   background-color: var(--neutral-layer-floating);
 }

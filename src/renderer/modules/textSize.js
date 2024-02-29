@@ -7,8 +7,8 @@ const setTextSize = (textSize) => {
   document.documentElement.style.setProperty("--text-scale", textSize);
 };
 
-window.settings.getTextSize().then(setTextSize);
+window.appearanceSettings.getTextSize().then(setTextSize);
 
-window.settings.onTextSize((_event, textSize) => {
+window.appearanceSettings.onTextSize((_event, textSize) => {
   setTextSize(textSize);
 });

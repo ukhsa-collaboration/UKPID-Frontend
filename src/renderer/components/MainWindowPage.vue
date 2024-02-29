@@ -2,7 +2,7 @@
   <div class="MainWindowPage"><slot /></div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .MainWindowPage {
   padding: var(--page-gap);
   width: 100%;
