@@ -1,4 +1,4 @@
-import { getAccessToken } from "../auth";
+import { forceRefresh, getAccessToken } from "../auth";
 
 export const request = async ({
   endpoint,
@@ -6,6 +6,7 @@ export const request = async ({
   queryParams = null,
   useAuth = true,
   ipcEvent = null,
+  retry = null,
 }) => {
   try {
     if (global.networkDisconnected) {
@@ -41,11 +42,23 @@ export const request = async ({
 
     if (!response.ok) {
       if (response?.status === 401) {
-        // refresh token and try request again
-        // If that fails, return auth error??
-        // {"message":"Unauthenticated."} - user doesn't exist
+        console.log("401", await response.text());
 
-        console.log("401", await response.text(), accessToken);
+        // Ensure that we're only retrying once so that we're not stuck in a loop
+        if (!retry) {
+          const refreshed = await forceRefresh(ipcEvent);
+
+          if (refreshed) {
+            return await request({
+              endpoint,
+              options,
+              queryParams,
+              useAuth,
+              ipcEvent,
+              retry: 1,
+            });
+          }
+        }
       }
 
       throw new Error(`HTTP error! status: ${response.status}`, {

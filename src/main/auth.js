@@ -150,11 +150,17 @@ export const getAccessToken = async (event = null) => {
   const dateNow = Date.now() / 1000;
 
   if (dateNow > expiresAt - expiryBuffer) {
-    if (!(await refreshAccessToken())) {
-      await login(event);
-      throw new LoginRequested();
-    }
+    await forceRefresh(event);
   }
 
   return authStore.getEncrypted("user.accessToken");
+};
+
+export const forceRefresh = async (event = null) => {
+  if (!(await refreshAccessToken())) {
+    await login(event);
+    throw new LoginRequested();
+  } else {
+    return true;
+  }
 };
