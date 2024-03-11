@@ -4,7 +4,7 @@ export const i18nStrings = {
   en_GB: {
     routes: {
       dashboard: { _: "Dashboard" },
-      enquiries: { _: "Enquiries" },
+      enquiry: { _: "Enquiries" },
       reports: { _: "Reports" },
       alerts: { _: "Alerts" },
       audit: { _: "Audit", enquiries: "Enquiries", users: "Users" },

@@ -1,12 +1,30 @@
 <template>
-  <div class="Status" :class="`Status--${capitalize(props.status)}`">
-    <div ref="statusIndicator" class="Status__Indicator" aria-hidden="true" />
-    <slot class="Status__Label" />
+  <div class="Status">
+    <ConnectedIcon
+      v-if="props.status === 'connected'"
+      class="Indicator"
+      aria-hidden="true"
+    />
+    <ConnectingIcon
+      v-if="props.status === 'connecting'"
+      class="Indicator"
+      aria-hidden="true"
+    />
+    <DisconnectedIcon
+      v-if="props.status === 'disconnected'"
+      class="Indicator"
+      aria-hidden="true"
+    />
+    <span :class="{ 'visually-hidden': !props.showLabel }">
+      <slot />
+    </span>
   </div>
 </template>
 
 <script setup>
-import { capitalize } from "@/modules/util";
+import ConnectedIcon from "@fluentui/svg-icons/icons/cloud_20_filled.svg";
+import ConnectingIcon from "@fluentui/svg-icons/icons/cloud_swap_20_filled.svg";
+import DisconnectedIcon from "@fluentui/svg-icons/icons/cloud_off_20_filled.svg";
 
 const props = defineProps({
   status: {
@@ -15,6 +33,10 @@ const props = defineProps({
     validator: (value) =>
       ["connected", "connecting", "disconnected", "unknown"].includes(value),
   },
+  showLabel: {
+    type: Boolean,
+    default: true,
+  },
 });
 </script>
 
@@ -22,29 +44,12 @@ const props = defineProps({
 @use "@/scss/abstracts/functions" as fns;
 
 .Status {
-  --status-color: var(--neutral-layer-4);
-
   display: inline-flex;
   gap: fns.gap(0.5);
   align-items: center;
 }
 
-.Status--Connected {
-  --status-color: var(--color-status-success-foreground);
-}
-
-.Status--Connecting {
-  --status-color: var(--color-status-warning-foreground);
-}
-
-.Status--Disconnected {
-  --status-color: var(--color-status-danger-foreground);
-}
-
-.Status__Indicator {
-  background-color: var(--status-color);
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
+.Indicator {
+  fill: currentColor;
 }
 </style>

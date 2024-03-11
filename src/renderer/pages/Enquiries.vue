@@ -1,136 +1,209 @@
 <template>
-  <MainWindowPage class="Enquiries">
-    <h1>{{ $t("Enquiries") }}</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-      pulvinar nunc. Suspendisse suscipit leo eu convallis accumsan. Donec
-      tempor arcu id justo ultricies dignissim. In dapibus pellentesque gravida.
-      Pellentesque non metus ut risus facilisis ultrices a quis mi. Donec
-      vehicula congue est, ac porta sapien porta vel. Donec feugiat tincidunt
-      felis. Pellentesque sollicitudin ut tortor ut aliquet. Pellentesque
-      feugiat mattis turpis. Nam finibus odio eu fringilla sodales. Sed
-      faucibus, turpis ut mollis lacinia, velit neque porttitor nibh, eget
-      suscipit erat dolor sed arcu. Fusce volutpat mauris et sapien placerat,
-      varius laoreet nulla interdum. In dui nulla, mollis in ex in, semper
-      tempus mi. Phasellus viverra eget leo ac pulvinar. Cras tincidunt
-      fringilla odio, ut imperdiet est. Aliquam ipsum ipsum, euismod a venenatis
-      ac, aliquam eu neque.
-    </p>
-    <h2>{{ $t("Enquiries") }}</h2>
-    <p>
-      Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus
-      posuere lorem eu est commodo vehicula. Proin condimentum vestibulum est
-      quis sagittis. Sed et venenatis nunc. Morbi nulla purus, facilisis vitae
-      consectetur quis, porta nec orci. Sed bibendum a tortor sit amet aliquet.
-      Etiam maximus ante dictum velit varius suscipit. Praesent at nunc at elit
-      mollis commodo quis quis diam. Cras risus urna, interdum sit amet ante
-      nec, dignissim dignissim ex. Aliquam ac molestie lectus. Ut sed pulvinar
-      nisl.
-    </p>
-    <h3>{{ $t("Enquiries") }}</h3>
-    <p>
-      Aenean eleifend ullamcorper mattis. Nulla odio quam, fermentum ut volutpat
-      scelerisque, aliquam quis mauris. Praesent id convallis turpis. Sed
-      egestas sapien ipsum, at finibus arcu dictum non. Nullam viverra varius
-      leo, et tristique nisl commodo vel. Donec at pharetra mi. Nullam suscipit
-      malesuada dolor ut viverra. Vestibulum in rhoncus est. Curabitur ac dui at
-      nisl sagittis consectetur. Sed sed arcu nec quam aliquet maximus eu vel
-      lectus.
-    </p>
-    <h4>{{ $t("Enquiries") }}</h4>
-    <p>
-      Etiam id ligula et libero placerat rutrum ac nec felis. Aliquam blandit
-      odio in justo tincidunt dapibus. Mauris ac eros ullamcorper nibh ultricies
-      mollis. Nunc vehicula vehicula nisi, at euismod tellus sodales sit amet.
-      Cras efficitur leo leo, et lobortis elit condimentum in. Donec auctor eget
-      nibh id egestas. Duis nec euismod risus, sit amet porta velit. Nullam
-      blandit dui ut nibh tincidunt, at blandit felis maximus. Sed odio lorem,
-      consequat vitae eros ut, blandit lobortis felis. Integer mi mi, blandit
-      quis nulla eget, blandit luctus ipsum. Proin metus orci, aliquam nec
-      eleifend sed, pharetra suscipit lectus. Aliquam erat volutpat. Donec eu
-      ante eu nunc vulputate accumsan sit amet ac lorem.
-    </p>
-    <h5>{{ $t("Enquiries") }}</h5>
-    <p>
-      Aenean non consequat ex. Maecenas vestibulum tristique urna. Maecenas non
-      lectus nec ipsum bibendum maximus vitae vel nisl. Proin varius mollis
-      tellus sed viverra. Donec lacinia commodo enim, id accumsan libero
-      pharetra ut. Suspendisse sed lectus massa. Vivamus fermentum eleifend
-      massa, sit amet consequat erat semper fringilla. Aenean blandit euismod
-      risus, sit amet mollis metus volutpat scelerisque. Nam eget felis feugiat
-      urna vulputate luctus id at velit. Nulla placerat magna nec lacus lacinia
-      vehicula quis sit amet mi. Vivamus rhoncus ultrices sem et blandit.
-      Integer faucibus quis lectus ut vulputate. Mauris tempor massa id accumsan
-      tincidunt. Mauris lobortis diam ut ullamcorper ultricies. Donec tempor
-      tempus congue. Sed lobortis lacus sit amet nisi convallis bibendum.
-    </p>
-    <h6>{{ $t("Enquiries") }}</h6>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-      pulvinar nunc. Suspendisse suscipit leo eu convallis accumsan. Donec
-      tempor arcu id justo ultricies dignissim. In dapibus pellentesque gravida.
-      Pellentesque non metus ut risus facilisis ultrices a quis mi. Donec
-      vehicula congue est, ac porta sapien porta vel. Donec feugiat tincidunt
-      felis. Pellentesque sollicitudin ut tortor ut aliquet. Pellentesque
-      feugiat mattis turpis. Nam finibus odio eu fringilla sodales. Sed
-      faucibus, turpis ut mollis lacinia, velit neque porttitor nibh, eget
-      suscipit erat dolor sed arcu. Fusce volutpat mauris et sapien placerat,
-      varius laoreet nulla interdum. In dui nulla, mollis in ex in, semper
-      tempus mi. Phasellus viverra eget leo ac pulvinar. Cras tincidunt
-      fringilla odio, ut imperdiet est. Aliquam ipsum ipsum, euismod a venenatis
-      ac, aliquam eu neque.
-    </p>
-    <p>
-      Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus
-      posuere lorem eu est commodo vehicula. Proin condimentum vestibulum est
-      quis sagittis. Sed et venenatis nunc. Morbi nulla purus, facilisis vitae
-      consectetur quis, porta nec orci. Sed bibendum a tortor sit amet aliquet.
-      Etiam maximus ante dictum velit varius suscipit. Praesent at nunc at elit
-      mollis commodo quis quis diam. Cras risus urna, interdum sit amet ante
-      nec, dignissim dignissim ex. Aliquam ac molestie lectus. Ut sed pulvinar
-      nisl.
-    </p>
-    <p>
-      Aenean eleifend ullamcorper mattis. Nulla odio quam, fermentum ut volutpat
-      scelerisque, aliquam quis mauris. Praesent id convallis turpis. Sed
-      egestas sapien ipsum, at finibus arcu dictum non. Nullam viverra varius
-      leo, et tristique nisl commodo vel. Donec at pharetra mi. Nullam suscipit
-      malesuada dolor ut viverra. Vestibulum in rhoncus est. Curabitur ac dui at
-      nisl sagittis consectetur. Sed sed arcu nec quam aliquet maximus eu vel
-      lectus.
-    </p>
-    <p>
-      Etiam id ligula et libero placerat rutrum ac nec felis. Aliquam blandit
-      odio in justo tincidunt dapibus. Mauris ac eros ullamcorper nibh ultricies
-      mollis. Nunc vehicula vehicula nisi, at euismod tellus sodales sit amet.
-      Cras efficitur leo leo, et lobortis elit condimentum in. Donec auctor eget
-      nibh id egestas. Duis nec euismod risus, sit amet porta velit. Nullam
-      blandit dui ut nibh tincidunt, at blandit felis maximus. Sed odio lorem,
-      consequat vitae eros ut, blandit lobortis felis. Integer mi mi, blandit
-      quis nulla eget, blandit luctus ipsum. Proin metus orci, aliquam nec
-      eleifend sed, pharetra suscipit lectus. Aliquam erat volutpat. Donec eu
-      ante eu nunc vulputate accumsan sit amet ac lorem.
-    </p>
-    <p>
-      Aenean non consequat ex. Maecenas vestibulum tristique urna. Maecenas non
-      lectus nec ipsum bibendum maximus vitae vel nisl. Proin varius mollis
-      tellus sed viverra. Donec lacinia commodo enim, id accumsan libero
-      pharetra ut. Suspendisse sed lectus massa. Vivamus fermentum eleifend
-      massa, sit amet consequat erat semper fringilla. Aenean blandit euismod
-      risus, sit amet mollis metus volutpat scelerisque. Nam eget felis feugiat
-      urna vulputate luctus id at velit. Nulla placerat magna nec lacus lacinia
-      vehicula quis sit amet mi. Vivamus rhoncus ultrices sem et blandit.
-      Integer faucibus quis lectus ut vulputate. Mauris tempor massa id accumsan
-      tincidunt. Mauris lobortis diam ut ullamcorper ultricies. Donec tempor
-      tempus congue. Sed lobortis lacus sit amet nisi convallis bibendum.
-    </p>
-  </MainWindowPage>
+  <NavigationView>
+    <template #navigation-header>
+      <div class="Header">
+        <NavigationTitle>{{ $t("Enquiries") }}</NavigationTitle>
+        <UkpidButtonGroup class="HeaderButtons">
+          <UkpidButton
+            ref="newEnqButton"
+            aria-describedby="newEnqTooltip"
+            size="small"
+            appearance="transparent"
+            @mouseover="newEnqButtonTooltip.showTooltip"
+            @mouseleave="newEnqButtonTooltip.hideTooltip"
+            @focusin="newEnqButtonTooltip.showTooltip"
+            @focusout="newEnqButtonTooltip.hideTooltip"
+          >
+            <NewIcon />
+          </UkpidButton>
+          <UkpidTooltip
+            v-show="newEnqButtonTooltip.tooltipVisible"
+            id="newEnqTooltip"
+            ref="newEnqButtonTooltipEl"
+            :style="newEnqButtonTooltip.floatingStyles"
+            >{{ $t("New enquiry") }}
+          </UkpidTooltip>
+          <UkpidButton
+            ref="openEnqButton"
+            aria-describedby="openEnqTooltip"
+            size="small"
+            appearance="transparent"
+            @mouseover="openEnqButtonTooltip.showTooltip"
+            @mouseleave="openEnqButtonTooltip.hideTooltip"
+            @focusin="openEnqButtonTooltip.showTooltip"
+            @focusout="openEnqButtonTooltip.hideTooltip"
+          >
+            <OpenIcon />
+          </UkpidButton>
+          <UkpidTooltip
+            v-show="openEnqButtonTooltip.tooltipVisible"
+            id="openEnqTooltip"
+            ref="openEnqButtonTooltipEl"
+            :style="openEnqButtonTooltip.floatingStyles"
+            >{{ $t("Open enquiry") }}
+          </UkpidTooltip>
+        </UkpidButtonGroup>
+      </div>
+      <div class="SearchFilterGroup">
+        <UkpidSearchField v-model="search" size="small" class="Search">{{
+          $t("Search")
+        }}</UkpidSearchField>
+        <UkpidButton
+          ref="filterButton"
+          aria-describedby="filterTooltip"
+          size="small"
+          :slim="true"
+          appearance="transparent"
+          @mouseover="filterButtonTooltip.showTooltip"
+          @mouseleave="filterButtonTooltip.hideTooltip"
+          @focusin="filterButtonTooltip.showTooltip"
+          @focusout="filterButtonTooltip.hideTooltip"
+        >
+          <FilterIcon />
+        </UkpidButton>
+        <UkpidTooltip
+          v-show="filterButtonTooltip.tooltipVisible"
+          id="filterTooltip"
+          ref="filterButtonTooltipEl"
+          :style="filterButtonTooltip.floatingStyles"
+          >{{ $t("Filter") }}
+        </UkpidTooltip>
+      </div>
+    </template>
+    <template #navigation-items-top>
+      <EnquiryNavigationItem
+        v-for="enquiry in enquiries"
+        :key="enquiry.id"
+        :enquiry="enquiry"
+      />
+    </template>
+  </NavigationView>
 </template>
 
 <script setup>
-import MainWindowPage from "@/components/MainWindowPage.vue";
+import { reactive, ref } from "vue";
+import { useUserCan } from "@/composables/userCan";
+import { useTooltip } from "@/composables/tooltip";
+import NavigationView from "@/components/NavigationView/NavigationView.vue";
+import NavigationTitle from "@/components/NavigationView/NavigationTitle.vue";
+import EnquiryNavigationItem from "@/components/Enquiry/EnquiryNavigationItem.vue";
+import UkpidButtonGroup from "@/components/UkpidButtonGroup.vue";
+import UkpidButton from "@/components/UkpidButton.vue";
+import UkpidSearchField from "@/components/UkpidSearchField.vue";
+import UkpidTooltip from "@/components/UkpidTooltip.vue";
+import NewIcon from "@fluentui/svg-icons/icons/form_new_20_regular.svg";
+import OpenIcon from "@fluentui/svg-icons/icons/folder_open_20_regular.svg";
+import FilterIcon from "@fluentui/svg-icons/icons/filter_20_regular.svg";
+
+const { can } = useUserCan();
+const search = ref(null);
+
+const newEnqButton = ref(null);
+const newEnqButtonTooltipEl = ref(null);
+
+const newEnqButtonTooltip = reactive(
+  useTooltip({
+    referenceEl: newEnqButton,
+    tooltipEl: newEnqButtonTooltipEl,
+    tooltipPlacement: "top",
+  }),
+);
+
+const openEnqButton = ref(null);
+const openEnqButtonTooltipEl = ref(null);
+
+const openEnqButtonTooltip = reactive(
+  useTooltip({
+    referenceEl: openEnqButton,
+    tooltipEl: openEnqButtonTooltipEl,
+    tooltipPlacement: "top",
+  }),
+);
+
+const filterButton = ref(null);
+const filterButtonTooltipEl = ref(null);
+
+const filterButtonTooltip = reactive(
+  useTooltip({
+    referenceEl: filterButton,
+    tooltipEl: filterButtonTooltipEl,
+    tooltipPlacement: "top",
+  }),
+);
+
+const enquiries = ref([
+  {
+    id: 101,
+    agent: "PY Ant Powder",
+    updated_at: "2024-03-05T11:35:24.000000Z",
+  },
+  {
+    id: 102,
+    agent: "ASDA Thick Bleach Long Name",
+    updated_at: "2024-02-27T11:35:24.000000Z",
+  },
+  {
+    id: 103,
+    agent: "Tesco Bleach",
+    updated_at: "2023-04-02T11:35:24.000000Z",
+  },
+  {
+    id: 104,
+    agent: "PY Ant Powder",
+    updated_at: "2024-03-05T11:35:24.000000Z",
+  },
+  {
+    id: 105,
+    agent: "ASDA Thick Bleach Long Name",
+    updated_at: "2024-02-27T11:35:24.000000Z",
+  },
+  {
+    id: 106,
+    agent: "Tesco Bleach",
+    updated_at: "2023-04-02T11:35:24.000000Z",
+  },
+  {
+    id: 107,
+    agent: "PY Ant Powder",
+    updated_at: "2024-03-05T11:35:24.000000Z",
+  },
+  {
+    id: 108,
+    agent: "ASDA Thick Bleach Long Name",
+    updated_at: "2024-02-27T11:35:24.000000Z",
+  },
+  {
+    id: 109,
+    agent: "Tesco Bleach",
+    updated_at: "2023-04-02T11:35:24.000000Z",
+  },
+]);
 </script>
 
 <style lang="scss" scoped>
-// tbc
+@use "@/scss/abstracts/functions" as fns;
+@use "@/scss/abstracts/placeholders";
+
+.Header {
+  display: flex;
+  gap: fns.gap(0.25);
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.HeaderButtons {
+  gap: fns.gap(0.25);
+}
+
+.SearchFilterGroup {
+  display: flex;
+  gap: fns.gap(0.5) fns.gap(0.25);
+  margin-top: fns.gap(1);
+  flex-wrap: wrap;
+}
+
+.Search {
+  flex-grow: 1;
+}
 </style>

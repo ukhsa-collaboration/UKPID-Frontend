@@ -4,6 +4,7 @@
       ref="indicator"
       class="Status"
       :status="connection.status"
+      :show-label="props.showLabel"
       :tabindex="hasTooltip ? 0 : -1"
       aria-describedby="status-tooltip"
       @mouseover="showTooltip"
@@ -30,6 +31,13 @@ import { useTooltip } from "@/composables/tooltip";
 import StatusIndicator from "@/components/StatusIndicator.vue";
 import UkpidTooltip from "@/components/UkpidTooltip.vue";
 import { useConnectionStore } from "@/stores/connection";
+
+const props = defineProps({
+  showLabel: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const { t } = useI18n();
 

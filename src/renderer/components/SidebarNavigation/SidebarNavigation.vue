@@ -4,7 +4,7 @@
       <SidebarNavigationItem route="dashboard"
         ><DashboardIcon
       /></SidebarNavigationItem>
-      <SidebarNavigationItem route="enquiries"
+      <SidebarNavigationItem route="enquiry"
         ><EnquiryIcon
       /></SidebarNavigationItem>
       <SidebarNavigationItem route="reports"

@@ -129,6 +129,10 @@ const colorStatusSuccessBackground = DesignToken.create(
   "color-status-success-background",
 );
 
+const transparentButtonBackgroundHover = DesignToken.create(
+  "transparent-button-background-hover",
+);
+
 /**
  * Fonts
  */
@@ -169,6 +173,8 @@ export const setTheme = (target, isDark) => {
     colorStatusSuccessForeground.setValueFor(target, "#54b054");
     colorStatusSuccessBorder.setValueFor(target, "#107c10");
     colorStatusSuccessBackground.setValueFor(target, "#052505");
+
+    transparentButtonBackgroundHover.setValueFor(target, "#FFFFFF14");
   } else {
     baseLayerLuminance.setValueFor(target, StandardLuminance.LightMode);
 
@@ -191,6 +197,8 @@ export const setTheme = (target, isDark) => {
     colorStatusSuccessForeground.setValueFor(target, "#0e700e");
     colorStatusSuccessBorder.setValueFor(target, "#9fd89f");
     colorStatusSuccessBackground.setValueFor(target, "#f1faf1");
+
+    transparentButtonBackgroundHover.setValueFor(target, "#00000009");
   }
 };
 

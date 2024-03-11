@@ -3,7 +3,9 @@
     <UkpidOffline v-if="!props.worksOffline && !isConnected()" />
     <div v-else class="NavigationView">
       <div class="NavigationHeader">
-        <h1 class="Title2"><slot name="navigation-title" /></h1>
+        <slot name="navigation-header">
+          <NavigationTitle><slot name="navigation-title" /></NavigationTitle>
+        </slot>
       </div>
       <div class="NavigationFrame">
         <div class="NavigationItems">
@@ -21,10 +23,7 @@
           :leave-active-class="transitions[transition].leaveActiveClass"
           :leave-to-class="transitions[transition].leaveToClass"
         >
-          <component
-            :is="Component"
-            :key="route.matched[1]?.path ?? route.path"
-          />
+          <component :is="Component" :key="route.path" />
         </Transition>
       </RouterView>
     </div>
@@ -37,6 +36,7 @@ import transitions from "@/modules/transitions";
 import MainWindowPage from "@/components/MainWindowPage.vue";
 import UkpidOffline from "@/components/UkpidOffline.vue";
 import { useConnectionStore } from "@/stores/connection";
+import NavigationTitle from "@/components/NavigationView/NavigationTitle.vue";
 
 const props = defineProps({
   worksOffline: {
@@ -64,8 +64,8 @@ const { isConnected } = useConnectionStore();
   overflow: hidden;
   display: grid;
   grid-template-areas:
-    "navigation-header content-header"
-    "navigation-frame content-body";
+    "navigation-header content"
+    "navigation-frame content";
   grid-template-columns: 200px 1fr;
   grid-template-rows: max-content 1fr;
   gap: fns.gap(1) var(--page-gap);

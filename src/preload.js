@@ -12,6 +12,8 @@ import { exposeApi } from "./preload/api";
 import { exposeNetwork } from "./preload/network";
 import { exposeSettings } from "./preload/settings";
 import { exposeNavigateTo } from "./preload/navigateTo";
+import { exposeEnquiries } from "./preload/enquiries";
+import { exposePopout } from "./preload/popout";
 
 if (buildingForTest) {
   import("wdio-electron-service/preload");
@@ -27,3 +29,5 @@ exposeUser();
 exposeApi();
 exposeSettings();
 exposeNavigateTo();
+exposePopout();
+exposeEnquiries();

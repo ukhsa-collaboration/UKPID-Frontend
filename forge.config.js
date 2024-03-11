@@ -65,6 +65,10 @@ module.exports = {
             name: "loading_window",
             config: "vite.renderer.loading.config.mjs",
           },
+          {
+            name: "popout_window",
+            config: "vite.renderer.popout.config.mjs",
+          },
         ],
       },
     },

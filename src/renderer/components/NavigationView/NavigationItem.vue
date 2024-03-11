@@ -6,17 +6,19 @@
     :class="{
       'NavigationItem--Spin': props.spin,
     }"
-    :to="{ name: props.route }"
+    :to="{ name: props.route, params: props.routeParams }"
   >
     <Transition>
       <div v-show="isExactActive" class="Indicator"></div>
     </Transition>
-    <div class="Inner">
-      <span class="Icon">
-        <slot />
-      </span>
-      <span class="Label">{{ $t(props.labelTransKey) }}</span>
-    </div>
+    <slot name="content">
+      <div class="Inner">
+        <span class="Icon">
+          <slot />
+        </span>
+        <span class="Label">{{ $t(props.labelTransKey) }}</span>
+      </div>
+    </slot>
   </router-link>
 </template>
 
@@ -25,6 +27,10 @@ const props = defineProps({
   route: {
     type: String,
     required: true,
+  },
+  routeParams: {
+    type: Object,
+    default: () => ({}),
   },
   spin: {
     type: Boolean,
@@ -49,12 +55,12 @@ const props = defineProps({
   --link-color-active: var(--neutral-foreground-rest);
 
   text-decoration: none;
-  padding: 8px;
+  padding: fns.gap(0.5);
   border-radius: calc(1px * var(--control-corner-radius));
-  position: relative;
-  overflow: hidden;
   -webkit-user-drag: none;
-  display: block;
+  display: grid;
+  grid-template-areas: "indicator inner";
+  grid-template-columns: 0 1fr;
 
   &:hover,
   &:focus-visible {
@@ -101,14 +107,12 @@ const props = defineProps({
 }
 
 .Indicator {
+  grid-area: indicator;
   width: 0;
-  height: calc(100% - 20px);
   border-left: 1px solid var(--accent-fill-rest);
   border-right: 2px solid var(--accent-fill-rest);
-  position: absolute;
-  top: 10px;
-  left: 0;
   border-radius: calc(1px * var(--control-corner-radius));
+  transform: translateX(fns.gap(-0.5));
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
@@ -134,6 +138,7 @@ const props = defineProps({
 }
 
 .Inner {
+  grid-area: inner;
   opacity: var(--inner-opacity, 1);
   display: grid;
   gap: calc(var(--base-gap) * 0.75);

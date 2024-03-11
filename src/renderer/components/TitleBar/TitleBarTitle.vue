@@ -1,9 +1,17 @@
 <template>
   <div class="TitleBarTitle">
     <Logo class="TitleBarTitle__Icon" />
-    <span class="TitleBarTitle__LongName">UK Poisons Information Database</span>
-    <span class="TitleBarTitle__ShortName">UKPID</span>
-    <span class="TitleBarTitle__ReleaseTag">{{ props.releaseTag }}</span>
+    <slot>
+      <span v-if="!props.logoOnly" class="TitleBarTitle__LongName"
+        >UK Poisons Information Database</span
+      >
+      <span v-if="!props.logoOnly" class="TitleBarTitle__ShortName">UKPID</span>
+      <span
+        v-if="!props.logoOnly && props.releaseTag"
+        class="TitleBarTitle__ReleaseTag"
+        >{{ props.releaseTag }}</span
+      >
+    </slot>
   </div>
 </template>
 
@@ -11,6 +19,10 @@
 import Logo from "@/assets/UKPIDLogoColour.svg";
 
 const props = defineProps({
+  logoOnly: {
+    type: Boolean,
+    default: false,
+  },
   releaseTag: {
     type: String,
     default: null,
