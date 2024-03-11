@@ -12,7 +12,7 @@
           </UkpidButton>
         </li>
         <li v-if="props.currentPage > props.perSide + 1">
-          <UkpidButton appearance="stealth" @click.prevent="goTo(1)">
+          <UkpidButton appearance="transparent" @click.prevent="goTo(1)">
             <span aria-hidden="true">1</span
             ><span class="visually-hidden">{{ $t("First Page") }}</span>
           </UkpidButton>
@@ -23,7 +23,7 @@
         <template v-for="n in props.perSide" :key="beforePage(n)">
           <li v-if="beforePage(n) > 0">
             <UkpidButton
-              appearance="stealth"
+              appearance="transparent"
               @click.prevent="goTo(beforePage(n))"
             >
               <i18n-t scope="global" keypath="{pageLabel} {page}" tag="span">
@@ -36,7 +36,7 @@
           </li>
         </template>
         <li>
-          <UkpidButton appearance="stealth" disabled class="CurrentPage">
+          <UkpidButton appearance="transparent" disabled class="CurrentPage">
             <i18n-t scope="global" keypath="{pageLabel} {page}" tag="span">
               <template #page>{{ props.currentPage }}</template>
               <template #pageLabel>
@@ -48,7 +48,7 @@
         <template v-for="n in props.perSide" :key="afterPage(n)">
           <li v-if="afterPage(n) <= props.lastPage">
             <UkpidButton
-              appearance="stealth"
+              appearance="transparent"
               @click.prevent="goTo(afterPage(n))"
             >
               <i18n-t scope="global" keypath="{pageLabel} {page}" tag="span">
@@ -68,7 +68,7 @@
         </li>
         <li v-if="props.currentPage < props.lastPage - props.perSide">
           <UkpidButton
-            appearance="stealth"
+            appearance="transparent"
             @click.prevent="goTo(props.lastPage)"
           >
             <span aria-hidden="true">{{ props.lastPage }}</span

@@ -2,8 +2,18 @@
   <div class="TitleBar">
     <div class="Content">
       <slot v-if="props.content">
-        <TitleBarTitle class="Title" :release-tag="releaseTag" />
-        <TitleBarStatus class="Status" />
+        <TitleBarAppName
+          class="AppName"
+          :release-tag="releaseTag"
+          :logo-only="props.logoOnly"
+        >
+          <slot name="title" />
+        </TitleBarAppName>
+        <TitleBarStatus
+          v-if="props.showStatus"
+          class="Status"
+          :show-label="props.showStatusLabel"
+        />
       </slot>
     </div>
   </div>
@@ -11,7 +21,8 @@
 
 <script setup>
 import { onBeforeMount, ref } from "vue";
-import TitleBarTitle from "@/components/TitleBar/TitleBarTitle.vue";
+import { useHasSlot } from "@/composables/hasSlot";
+import TitleBarAppName from "@/components/TitleBar/TitleBarTitle.vue";
 import TitleBarStatus from "@/components/TitleBar/TitleBarStatus.vue";
 
 const props = defineProps({
@@ -19,7 +30,21 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  showStatus: {
+    type: Boolean,
+    default: true,
+  },
+  showStatusLabel: {
+    type: Boolean,
+    default: true,
+  },
+  logoOnly: {
+    type: Boolean,
+    default: false,
+  },
 });
+
+const { hasSlot } = useHasSlot();
 
 const releaseTag = ref(null);
 
@@ -52,12 +77,17 @@ onBeforeMount(async () => {
   position: absolute;
   top: 0;
   display: grid;
-  grid-template-areas: "title status";
-  grid-template-columns: minmax(max-content, 1fr) max-content;
+  grid-template-areas: "app-name title status";
+  grid-template-columns: max-content minmax(max-content, 1fr) max-content;
   grid-template-rows: 100%;
   gap: fns.gap(2);
   align-content: center;
+  align-items: center;
   padding: 0 fns.gap(1) 0 fns.gap(0.5);
+}
+
+.AppName {
+  grid-area: app-name;
 }
 
 .Title {

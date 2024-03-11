@@ -2,8 +2,8 @@
   <div class="MainWindow">
     <TitleBar />
     <div class="MainWindowLayout">
-      <SidebarNavigation class="MainWindowLayout__SidebarNavigation" />
-      <div class="MainWindowLayout__Body AppBody">
+      <SidebarNavigation class="SidebarNavigation" />
+      <div class="WindowBody">
         <RouterView v-slot="{ Component, route }">
           <Transition
             name="custom-classes"
@@ -57,19 +57,12 @@ const transition = ref("entrance");
   grid-template-areas: "sidebar-navigation body";
 }
 
-.MainWindowLayout__TitleBar {
-  grid-area: title-bar;
-}
-
-.MainWindowLayout__SidebarNavigation {
+.SidebarNavigation {
   grid-area: sidebar-navigation;
 }
 
-.MainWindowLayout__Body {
+.WindowBody {
   grid-area: body;
-}
-
-.AppBody {
   position: relative;
   border-top-left-radius: calc(var(--layer-corner-radius) * 1px);
   background-color: var(--fill-color);

@@ -6,6 +6,8 @@ import { connectionIpcHandlers } from "./connection";
 import { apiIpcHandlers } from "./api";
 import { networkIpcHandlers } from "./network";
 import { settingsIpcHandlers } from "./settings";
+import { enquiriesIpcHandlers } from "./enquiries";
+import { popoutIpcHandlers } from "./popout";
 
 export const registerIpcHandlers = () => {
   applicationIpcHandlers();
@@ -16,4 +18,6 @@ export const registerIpcHandlers = () => {
   connectionIpcHandlers();
   apiIpcHandlers();
   settingsIpcHandlers();
+  popoutIpcHandlers();
+  enquiriesIpcHandlers();
 };

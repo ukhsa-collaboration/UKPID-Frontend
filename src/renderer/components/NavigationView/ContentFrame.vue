@@ -22,16 +22,19 @@ const props = defineProps({
 
 .ContentFrame {
   display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-  grid-row: content-header-start / content-body-end;
-  grid-column: content-header-start / content-body-end;
+  grid-template-rows: max-content 1fr;
+  grid-area: content;
+  grid-template-areas:
+    "header"
+    "body";
+  gap: fns.gap(1);
+  overflow: hidden;
 }
 
 .ContentHeader {
   @extend %clean-child-margins;
 
-  grid-area: content-header;
+  grid-area: header;
   margin: 0 auto;
   max-width: 64rem;
   width: 100%;
@@ -41,7 +44,7 @@ const props = defineProps({
   @extend %clean-child-margins;
 
   height: 100%;
-  grid-area: content-body;
+  grid-area: body;
   margin: 0 auto;
   max-width: 64rem;
   width: 100%;

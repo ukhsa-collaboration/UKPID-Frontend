@@ -1,19 +1,34 @@
 <template>
   <div
     ref="container"
+    class="UkpidMenu"
     :class="{
       MenuAbove: placement?.startsWith('top'),
       MenuBelow: placement?.startsWith('bottom'),
     }"
   >
-    <button
+    <UkpidButton
       ref="button"
       class="Button"
-      :aria-label="props.buttonLabel"
-      @click="toggleMenu"
+      aria-describedby="buttonTooltip"
+      :size="props.buttonSize"
+      :slim="props.slimButton"
+      :appearance="props.buttonAppearance"
+      @mouseover="buttonTooltip.showTooltip"
+      @mouseleave="buttonTooltip.hideTooltip"
+      @focusin="buttonTooltip.showTooltip"
+      @focusout="buttonTooltip.hideTooltip"
+      @click.prevent="toggleMenu"
     >
       <slot name="button" />
-    </button>
+    </UkpidButton>
+    <UkpidTooltip
+      v-show="!showMenu && buttonTooltip.tooltipVisible"
+      id="buttonTooltip"
+      ref="buttonTooltipEl"
+      :style="buttonTooltip.floatingStyles"
+      >{{ props.tooltip }}
+    </UkpidTooltip>
     <Transition
       name="custom-classes"
       enter-from-class="MenuEnterFrom"
@@ -34,22 +49,48 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { reactive, ref, watch } from "vue";
 import { useFloating, flip, autoUpdate } from "@floating-ui/vue";
+import { useTooltip } from "@/composables/tooltip";
+import UkpidButton from "@/components/UkpidButton.vue";
+import UkpidTooltip from "@/components/UkpidTooltip.vue";
 
 const props = defineProps({
   placement: {
     type: String,
     default: "bottom-end",
   },
-  buttonLabel: {
+  tooltip: {
     type: String,
-    default: null,
+    required: true,
+  },
+  buttonSize: {
+    type: String,
+    default: "medium",
+  },
+  buttonAppearance: {
+    type: String,
+    default: "transparent",
+  },
+  slimButton: {
+    type: Boolean,
+    default: false,
   },
 });
 
 const container = ref(null);
+
 const button = ref(null);
+const buttonTooltipEl = ref(null);
+
+const buttonTooltip = reactive(
+  useTooltip({
+    referenceEl: button,
+    tooltipEl: buttonTooltipEl,
+    tooltipPlacement: "top",
+  }),
+);
+
 const menu = ref(null);
 const showMenu = ref(false);
 
@@ -75,7 +116,7 @@ const handleEscKey = (event) => {
   }
 };
 
-watch(showMenu, (newValue, oldValue) => {
+watch(showMenu, (newValue) => {
   if (newValue) {
     window.addEventListener("click", handleClickOutside);
     window.addEventListener("keydown", handleEscKey);
@@ -87,6 +128,10 @@ watch(showMenu, (newValue, oldValue) => {
 </script>
 
 <style lang="scss" scoped>
+.UkpidMenu {
+  display: inline-flex;
+}
+
 .Button {
   border: 0;
   background: transparent;

@@ -39,7 +39,7 @@
         "@electron-forge/plugin-vite": "7.2.0",
         "@electron/asar": "3.2.8",
         "@floating-ui/vue": "1.0.4",
-        "@fluentui/svg-icons": "1.1.225",
+        "@fluentui/svg-icons": "1.1.231",
         "@fluentui/web-components": "2.5.14",
         "@microsoft/fast-colors": "5.3.1",
         "@microsoft/fast-foundation": "2.49.4",

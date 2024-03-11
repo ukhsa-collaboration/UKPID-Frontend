@@ -3,13 +3,21 @@
     <h1>{{ $t("Dashboard") }}</h1>
     <UkpidButton appearance="accent" @click="hello">Hello!</UkpidButton>
 
+    <div style="display: flex; gap: 8px">
+      <UkpidSearchField size="small" />
+      <UkpidSearchField size="medium" />
+      <UkpidSearchField size="large" />
+      <UkpidTextField size="small" value="test" />
+      <UkpidTextField size="medium" value="test" />
+      <UkpidTextField size="large" value="test" />
+    </div>
     <p id="msg">
       {{ msg }}
     </p>
 
     <p>
       Lorem ipsum
-      <router-link :to="{ name: 'enquiries' }">dolor alet</router-link>
+      <router-link :to="{ name: 'enquiry' }">dolor alet</router-link>
       dsfsdfds
     </p>
 
@@ -17,31 +25,33 @@
       ref="tooltipTarget"
       :tabindex="0"
       aria-describedby="tooltip"
-      @mouseover="showTooltip"
-      @mouseleave="hideTooltip"
-      @focusin="showTooltip"
-      @focusout="hideTooltip"
+      @mouseover="tooltip.showTooltip"
+      @mouseleave="tooltip.hideTooltip"
+      @focusin="tooltip.showTooltip"
+      @focusout="tooltip.hideTooltip"
     >
       Hover for a tooltip!
     </span>
 
     <UkpidTooltip
-      v-show="tooltipVisible"
+      v-show="tooltip.tooltipVisible"
       id="tooltip"
       ref="tooltipEl"
-      :style="floatingStyles"
+      :style="tooltip.floatingStyles"
       >This is the tooltip!
     </UkpidTooltip>
   </MainWindowPage>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import MainWindowPage from "@/components/MainWindowPage.vue";
 import UkpidButton from "@/components/UkpidButton.vue";
 import UkpidTooltip from "@/components/UkpidTooltip.vue";
 import { useTooltip } from "@/composables/tooltip";
 import { apiRequest } from "@/modules/apiRequest";
+import UkpidTextField from "@/components/UkpidTextField.vue";
+import UkpidSearchField from "@/components/UkpidSearchField.vue";
 
 const msg = ref("Say hello");
 
@@ -66,11 +76,12 @@ const hello = async () => {
 const tooltipTarget = ref(null);
 const tooltipEl = ref(null);
 
-const { tooltipVisible, showTooltip, hideTooltip, floatingStyles } = useTooltip(
-  {
+const tooltip = reactive(
+  useTooltip({
     referenceEl: tooltipTarget,
     tooltipEl,
-  },
+    tooltipPlacement: "top",
+  }),
 );
 </script>
 
