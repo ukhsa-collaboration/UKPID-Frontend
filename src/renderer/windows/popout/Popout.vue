@@ -49,10 +49,10 @@ onBeforeMount(async () => {
   left: 0;
   width: 100%;
   height: calc(100% - env(titlebar-area-height));
-  overflow: auto;
-  background-color: var(--fill-color);
-  border-top: 1px solid var(--neutral-stroke-active);
   padding-top: var(--page-gap);
   padding-left: var(--page-gap);
+  overflow: auto;
+  border-top: 1px solid var(--neutral-stroke-active);
+  background-color: var(--fill-color);
 }
 </style>

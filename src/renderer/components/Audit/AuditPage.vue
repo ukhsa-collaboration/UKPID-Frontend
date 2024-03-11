@@ -263,10 +263,10 @@ onMounted(async () => {
 
 .Sort {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: fns.gap(1);
   flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: fns.gap(1);
   gap: fns.gap(1);
 }
 

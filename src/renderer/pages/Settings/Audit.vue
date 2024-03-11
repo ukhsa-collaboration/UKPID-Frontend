@@ -54,8 +54,8 @@ const setSplit = () => {
 
 .TextSizeControlContainer {
   display: flex;
-  gap: fns.gap(1);
   align-items: center;
+  gap: fns.gap(1);
 }
 
 .TextSizeControl {
@@ -66,8 +66,8 @@ const setSplit = () => {
 }
 
 .TextSizeSlider {
-  width: 100%;
   position: relative;
   top: calc(-2px + var(--thumb-size) * 0.5px);
+  width: 100%;
 }
 </style>

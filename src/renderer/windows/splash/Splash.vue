@@ -156,30 +156,30 @@ onMounted(async () => {
 @use "@/scss/abstracts/functions" as fns;
 
 .Prelaunch {
-  overflow: auto;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 .Content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: fns.gap(3);
+  position: absolute;
   top: env(titlebar-area-height);
   left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: calc(100% - env(titlebar-area-height));
-  position: absolute;
   padding: 0 fns.gap(1);
+  gap: fns.gap(3);
 }
 
 .Title {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: fns.gap(2);
 }
 
@@ -188,10 +188,10 @@ onMounted(async () => {
 }
 
 .Name {
-  font-size: var(--type-ramp-plus-2-font-size);
-  line-height: var(--type-ramp-plus-2-line-height);
   margin-top: 0;
   margin-bottom: 0;
+  font-size: var(--type-ramp-plus-2-font-size);
+  line-height: var(--type-ramp-plus-2-line-height);
   text-align: center;
 }
 

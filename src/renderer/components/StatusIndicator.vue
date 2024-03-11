@@ -45,8 +45,8 @@ const props = defineProps({
 
 .Status {
   display: inline-flex;
-  gap: fns.gap(0.5);
   align-items: center;
+  gap: fns.gap(0.5);
 }
 
 .Indicator {

@@ -57,8 +57,8 @@ const model = defineModel({ type: null });
 
 .UkpidTextField :deep(svg) {
   fill: currentColor;
-  height: 1.428em; // 20px at base
   width: 1.428em; // 20px at base
+  height: 1.428em; // 20px at base
 }
 
 .UkpidTextField {

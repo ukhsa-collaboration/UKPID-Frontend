@@ -18,13 +18,13 @@ const props = defineProps({
 
 .UkpidLabel {
   display: block;
+  margin-bottom: 4px;
   color: var(--neutral-foreground-rest);
-  cursor: pointer;
-  font-family: var(--body-font);
+  font-weight: initial;
   font-size: var(--type-ramp-base-font-size);
   line-height: var(--type-ramp-base-line-height);
-  font-weight: initial;
+  font-family: var(--body-font);
   font-variation-settings: var(--type-ramp-base-font-variations);
-  margin-bottom: 4px;
+  cursor: pointer;
 }
 </style>

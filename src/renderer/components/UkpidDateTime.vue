@@ -45,9 +45,9 @@ const timeEl = ref(null);
 
 .UkpidDateTime {
   display: inline-flex;
-  gap: fns.gap(0.5);
-  padding: 0;
-  border: 0;
   margin: 0;
+  padding: 0;
+  gap: fns.gap(0.5);
+  border: 0;
 }
 </style>

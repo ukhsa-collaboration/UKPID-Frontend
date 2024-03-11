@@ -16,10 +16,10 @@ import OfflineIcon from "@fluentui/svg-icons/icons/cloud_off_48_regular.svg";
 .Offline {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
+  justify-content: center;
   width: 100%;
+  height: 100%;
   text-align: center;
 }
 

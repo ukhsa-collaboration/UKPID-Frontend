@@ -96,12 +96,12 @@ const openPopout = () => {
 @use "@/scss/abstracts/placeholders";
 
 .Enquiry {
-  grid-area: inner;
   display: grid;
+  grid-template-columns: 1fr max-content max-content max-content;
   grid-template-areas:
     "id date date date"
     "agent agent menu popout";
-  grid-template-columns: 1fr max-content max-content max-content;
+  grid-area: inner;
   align-items: center;
 }
 
@@ -111,18 +111,18 @@ const openPopout = () => {
 
 .Agent {
   grid-area: agent;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   font-size: var(--type-ramp-minus-1-font-size);
   line-height: var(--type-ramp-minus-1-line-height);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .Date {
   grid-area: date;
+  justify-self: end;
   font-size: var(--type-ramp-minus-1-font-size);
   line-height: var(--type-ramp-minus-1-line-height);
-  justify-self: end;
 }
 
 .Menu {

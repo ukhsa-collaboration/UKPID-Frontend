@@ -60,30 +60,30 @@ onBeforeMount(async () => {
 @use "@/scss/abstracts/functions" as fns;
 
 .TitleBar {
-  background-color: var(--neutral-layer-2);
-  height: env(titlebar-area-height);
   position: absolute;
   top: env(titlebar-area-y);
   width: 100%;
+  height: env(titlebar-area-height);
+  background-color: var(--neutral-layer-2);
   -webkit-app-region: drag;
   font-size: min(16px, var(--type-ramp-base-font-size));
   line-height: min(22px, var(--type-ramp-base-line-height));
 }
 
 .Content {
-  width: env(titlebar-area-width);
-  height: 100%;
-  left: env(titlebar-area-x);
+  display: grid;
   position: absolute;
   top: 0;
-  display: grid;
-  grid-template-areas: "app-name title status";
-  grid-template-columns: max-content minmax(max-content, 1fr) max-content;
+  left: env(titlebar-area-x);
   grid-template-rows: 100%;
-  gap: fns.gap(2);
+  grid-template-columns: max-content minmax(max-content, 1fr) max-content;
+  grid-template-areas: "app-name title status";
   align-content: center;
   align-items: center;
+  width: env(titlebar-area-width);
+  height: 100%;
   padding: 0 fns.gap(1) 0 fns.gap(0.5);
+  gap: fns.gap(2);
 }
 
 .AppName {

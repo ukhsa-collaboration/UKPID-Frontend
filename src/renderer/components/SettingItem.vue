@@ -40,23 +40,23 @@ defineExpose({ label });
 
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   padding: fns.gap(1);
-  background: var(--settings-item-background);
+  gap: var(--setting-gap);
   border: calc(var(--stroke-width) * 1px) solid var(--neutral-stroke-layer-rest);
   border-radius: calc(var(--control-corner-radius) * 1px);
-  gap: var(--setting-gap);
-  align-items: center;
+  background: var(--settings-item-background);
 }
 
 .Name {
   @extend %clean-child-margins;
-
-  gap: var(--setting-gap);
   display: grid;
   grid-template-columns: 24px 1fr;
   grid-template-areas: "icon label";
   align-items: center;
+
+  gap: var(--setting-gap);
 }
 
 .Icon {
@@ -70,8 +70,8 @@ defineExpose({ label });
 
 .Label {
   display: flex;
-  flex-direction: column;
   grid-area: label;
+  flex-direction: column;
 }
 
 .Label.NoIcon {
@@ -79,9 +79,9 @@ defineExpose({ label });
 }
 
 .Control {
-  text-align: right;
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   justify-content: flex-end;
+  text-align: right;
 }
 </style>

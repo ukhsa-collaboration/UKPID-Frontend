@@ -23,34 +23,34 @@ const props = defineProps({
 .ContentFrame {
   display: grid;
   grid-template-rows: max-content 1fr;
-  grid-area: content;
   grid-template-areas:
     "header"
     "body";
-  gap: fns.gap(1);
+  grid-area: content;
   overflow: hidden;
+  gap: fns.gap(1);
 }
 
 .ContentHeader {
   @extend %clean-child-margins;
 
   grid-area: header;
-  margin: 0 auto;
-  max-width: 64rem;
   width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
 }
 
 .ContentBody {
   @extend %clean-child-margins;
+  grid-area: body;
+  width: 100%;
+  max-width: 64rem;
 
   height: 100%;
-  grid-area: body;
   margin: 0 auto;
-  max-width: 64rem;
-  width: 100%;
-  overflow: auto;
   padding-right: var(--page-gap);
   padding-bottom: var(--page-gap);
+  overflow: auto;
 }
 
 .ContentBody.Grid {

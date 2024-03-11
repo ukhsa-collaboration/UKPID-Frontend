@@ -44,15 +44,15 @@ const { can } = useUserCan();
 @use "@/scss/abstracts/functions" as fns;
 
 .SidebarNavigation {
-  background-color: var(--neutral-layer-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: min(4.25rem, 99px);
   height: calc(100% + #{fns.gap(0.25)});
   margin-top: calc(-1 * #{fns.gap(0.25)});
   margin-right: -1px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   overflow: hidden;
+  background-color: var(--neutral-layer-2);
 }
 
 .Top {

@@ -34,19 +34,19 @@ const { hasSlot } = useHasSlot();
 }
 
 .Message {
-  text-align: center;
-  padding: fns.gap(2) 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: fns.gap(2) 0;
   gap: fns.gap(0.5);
+  text-align: center;
 }
 
 .MessageIcon :deep(svg) {
+  display: block;
   width: 3rem;
   height: 3rem;
-  display: block;
   fill: currentColor;
 }
 </style>

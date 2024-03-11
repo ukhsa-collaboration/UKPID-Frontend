@@ -16,12 +16,12 @@ import UkpidProgressRing from "@/components/UkpidProgressRing.vue";
 @use "@/scss/abstracts/functions" as fns;
 
 .Loading {
-  overflow: auto;
-  height: 100%;
-  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   background-color: var(--fill-color);
 }
 </style>

@@ -69,27 +69,27 @@ const hasSlot = (name) => {
   --background: var(--neutral-layer-3);
   --border: var(--neutral-stroke-rest);
   --icon-color: var(--neutral-fill-strong-rest);
-
-  background-color: var(--background);
-  border: calc(var(--stroke-width) * 1px) solid var(--border);
-  border-radius: calc(var(--control-corner-radius) * 1px);
-  align-items: center;
-  min-height: 36px;
   box-sizing: border-box;
-  padding-left: fns.gap(0.75);
   display: grid;
   grid-template: "icon body secondaryActions actions" 1fr / auto 1fr auto auto;
+  align-items: center;
+  min-height: 36px;
+  padding-left: fns.gap(0.75);
+  border: calc(var(--stroke-width) * 1px) solid var(--border);
+  border-radius: calc(var(--control-corner-radius) * 1px);
+
+  background-color: var(--background);
   white-space: nowrap;
 }
 
 .Compact {
+  grid-template-columns: auto 1fr auto;
   grid-template-areas:
     "icon body actions"
     "secondaryActions secondaryActions secondaryActions";
-  grid-template-columns: auto 1fr auto;
+  align-items: start;
   padding-top: fns.gap(0.5);
   padding-bottom: fns.gap(0.5);
-  align-items: start;
   white-space: normal;
 }
 
@@ -112,10 +112,10 @@ const hasSlot = (name) => {
 }
 
 .Icon {
-  grid-area: icon;
-  margin-right: fns.gap(0.5);
   display: flex;
+  grid-area: icon;
   align-items: center;
+  margin-right: fns.gap(0.5);
   fill: var(--icon-color);
 }
 

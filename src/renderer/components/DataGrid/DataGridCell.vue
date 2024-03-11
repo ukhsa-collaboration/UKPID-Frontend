@@ -17,8 +17,8 @@ const props = defineProps({
 @use "@/scss/abstracts/functions" as fns;
 
 .DataGridCell {
+  padding: fns.gap(0.5) fns.gap(0.25);
   text-align: left;
   vertical-align: top;
-  padding: fns.gap(0.5) fns.gap(0.25);
 }
 </style>

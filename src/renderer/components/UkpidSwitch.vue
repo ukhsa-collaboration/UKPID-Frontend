@@ -72,8 +72,8 @@ const change = (ev) => {
 }
 
 .Switch {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 
 .UkpidSwitch.Vertical::part(switch) {

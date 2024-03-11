@@ -21,19 +21,19 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .UserAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background: var(--neutral-fill-input-alt-active);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
 }
 
 $sizes: 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 72, 96, 120, 128;
 
 @each $size in $sizes {
   .Size#{$size} {
-    height: #{$size}px;
     width: #{$size}px;
+    height: #{$size}px;
   }
 }
 

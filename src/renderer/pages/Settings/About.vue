@@ -42,8 +42,8 @@ import ContentTitle from "@/components/NavigationView/ContentTitle.vue";
   @extend %no-child-margins;
 
   display: flex;
-  gap: fns.gap(1);
   align-items: center;
+  gap: fns.gap(1);
 }
 
 .AppIcon {

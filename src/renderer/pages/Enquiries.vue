@@ -186,10 +186,10 @@ const enquiries = ref([
 
 .Header {
   display: flex;
-  gap: fns.gap(0.25);
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  gap: fns.gap(0.25);
 }
 
 .HeaderButtons {
@@ -198,9 +198,9 @@ const enquiries = ref([
 
 .SearchFilterGroup {
   display: flex;
-  gap: fns.gap(0.5) fns.gap(0.25);
-  margin-top: fns.gap(1);
   flex-wrap: wrap;
+  margin-top: fns.gap(1);
+  gap: fns.gap(0.5) fns.gap(0.25);
 }
 
 .Search {

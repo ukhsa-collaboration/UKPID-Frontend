@@ -45,16 +45,16 @@ const transition = ref("entrance");
 @use "@/scss/abstracts/functions" as fns;
 
 .MainWindowLayout {
+  display: grid;
   position: absolute;
   top: env(titlebar-area-height);
   left: 0;
+  grid-template-rows: 1fr;
+  grid-template-columns: max-content 1fr;
+  grid-template-areas: "sidebar-navigation body";
   width: 100%;
   height: calc(100% - env(titlebar-area-height));
   overflow: hidden;
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "sidebar-navigation body";
 }
 
 .SidebarNavigation {
@@ -62,12 +62,12 @@ const transition = ref("entrance");
 }
 
 .WindowBody {
-  grid-area: body;
   position: relative;
-  border-top-left-radius: calc(var(--layer-corner-radius) * 1px);
-  background-color: var(--fill-color);
+  grid-area: body;
+  overflow: hidden;
   border-top: 1px solid var(--neutral-stroke-active);
   border-left: 1px solid var(--neutral-stroke-active);
-  overflow: hidden;
+  border-top-left-radius: calc(var(--layer-corner-radius) * 1px);
+  background-color: var(--fill-color);
 }
 </style>

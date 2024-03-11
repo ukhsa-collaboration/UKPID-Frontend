@@ -4,9 +4,9 @@
 
 <style lang="scss" scoped>
 .MainWindowPage {
-  padding: var(--page-gap);
   width: 100%;
   height: 100%;
+  padding: var(--page-gap);
   overflow: auto;
 }
 </style>

@@ -77,8 +77,8 @@ const { hasSlot } = useHasSlot();
 }
 
 .Slim::part(control) {
-  padding-left: 0 !important;
   padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 
 .Small {
@@ -117,8 +117,8 @@ const { hasSlot } = useHasSlot();
 
 .UkpidButton :deep(svg) {
   fill: currentColor;
-  height: 1.428em; // 20px at base
   width: 1.428em; // 20px at base
+  height: 1.428em; // 20px at base
 }
 
 .Transparent::part(control) {

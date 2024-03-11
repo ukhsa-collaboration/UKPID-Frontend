@@ -53,14 +53,14 @@ const props = defineProps({
   --link-color: var(--neutral-foreground-rest);
   --link-color-hover: var(--neutral-foreground-rest);
   --link-color-active: var(--neutral-foreground-rest);
-
-  text-decoration: none;
   padding: fns.gap(0.5);
   border-radius: calc(1px * var(--control-corner-radius));
+
+  text-decoration: none;
   -webkit-user-drag: none;
   display: grid;
-  grid-template-areas: "indicator inner";
   grid-template-columns: 0 1fr;
+  grid-template-areas: "indicator inner";
 
   &:hover,
   &:focus-visible {
@@ -95,9 +95,9 @@ const props = defineProps({
   @media (forced-colors: active) {
     &:not(:hover),
     &:not(:focus-visible) {
-      forced-color-adjust: none;
       background: highlight;
       color: highlighttext;
+      forced-color-adjust: none;
     }
 
     &::before {
@@ -109,17 +109,17 @@ const props = defineProps({
 .Indicator {
   grid-area: indicator;
   width: 0;
-  border-left: 1px solid var(--accent-fill-rest);
-  border-right: 2px solid var(--accent-fill-rest);
-  border-radius: calc(1px * var(--control-corner-radius));
   transform: translateX(fns.gap(-0.5));
+  border-right: 2px solid var(--accent-fill-rest);
+  border-left: 1px solid var(--accent-fill-rest);
+  border-radius: calc(1px * var(--control-corner-radius));
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
   .NavigationItem--Spin:active .Icon {
-    transition: transform 0.2s linear;
     transform: rotate(-15deg);
     animation-name: none !important;
+    transition: transform 0.2s linear;
   }
 
   .NavigationItem--Current.NavigationItem--Spin .Icon {
@@ -138,12 +138,12 @@ const props = defineProps({
 }
 
 .Inner {
-  grid-area: inner;
-  opacity: var(--inner-opacity, 1);
   display: grid;
-  gap: calc(var(--base-gap) * 0.75);
-  align-items: center;
   grid-template-columns: 20px 1fr;
+  grid-area: inner;
+  align-items: center;
+  gap: calc(var(--base-gap) * 0.75);
+  opacity: var(--inner-opacity, 1);
 }
 
 .Icon {

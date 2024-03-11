@@ -43,13 +43,13 @@ const props = defineProps({
   --link-color: var(--neutral-foreground-rest);
   --link-color-hover: var(--neutral-foreground-rest);
   --link-color-active: var(--neutral-foreground-rest);
+  position: relative;
+  margin: fns.gap(0.25);
+  padding: 10px;
+  overflow: hidden;
+  border-radius: calc(1px * var(--control-corner-radius));
 
   text-decoration: none;
-  padding: 10px;
-  margin: fns.gap(0.25);
-  border-radius: calc(1px * var(--control-corner-radius));
-  position: relative;
-  overflow: hidden;
   -webkit-user-drag: none;
   display: block;
 
@@ -86,9 +86,9 @@ const props = defineProps({
   @media (forced-colors: active) {
     &:not(:hover),
     &:not(:focus-visible) {
-      forced-color-adjust: none;
       background: highlight;
       color: highlighttext;
+      forced-color-adjust: none;
     }
 
     &::before {
@@ -98,21 +98,21 @@ const props = defineProps({
 }
 
 .Indicator {
-  width: 0;
-  height: calc(100% - 20px);
-  border-left: 1px solid var(--accent-fill-rest);
-  border-right: 2px solid var(--accent-fill-rest);
   position: absolute;
   top: 10px;
   left: 0;
+  width: 0;
+  height: calc(100% - 20px);
+  border-right: 2px solid var(--accent-fill-rest);
+  border-left: 1px solid var(--accent-fill-rest);
   border-radius: calc(1px * var(--control-corner-radius));
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
   .SidebarNavigationItem--Spin:active .Icon {
-    transition: transform 0.2s linear;
     transform: rotate(-15deg);
     animation-name: none !important;
+    transition: transform 0.2s linear;
   }
 
   .SidebarNavigationItem--Current.SidebarNavigationItem--Spin .Icon {
@@ -131,12 +131,12 @@ const props = defineProps({
 }
 
 .Inner {
-  opacity: var(--inner-opacity, 1);
   display: flex;
-  gap: fns.gap(0.25);
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: fns.gap(0.25);
+  opacity: var(--inner-opacity, 1);
 }
 
 .Icon:deep(svg) {

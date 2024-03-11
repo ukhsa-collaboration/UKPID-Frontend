@@ -122,11 +122,11 @@ const afterPage = (n) => props.currentPage + n;
 @use "@/scss/abstracts/functions" as fns;
 
 .Pagination {
+  display: flex;
   margin: 0;
   padding: 0;
-  list-style: none;
-  display: flex;
   gap: fns.gap(0.5);
+  list-style: none;
 }
 
 li {
@@ -140,15 +140,15 @@ li {
 }
 
 .CurrentPage::after {
-  content: "";
   position: absolute;
-  height: 0;
+  bottom: 0;
+  left: 5px;
   width: calc(100% - 10px);
+  height: 0;
   border-top: 1px solid var(--accent-fill-rest);
   border-bottom: 2px solid var(--accent-fill-rest);
-  left: 5px;
-  bottom: 0;
   border-radius: calc(1px * var(--control-corner-radius));
+  content: "";
 }
 
 .CurrentPage::part(control) {
@@ -157,7 +157,7 @@ li {
 }
 
 .Icon {
-  height: 1rem;
   width: 1rem;
+  height: 1rem;
 }
 </style>

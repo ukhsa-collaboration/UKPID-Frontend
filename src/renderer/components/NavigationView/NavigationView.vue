@@ -59,17 +59,17 @@ const { isConnected } = useConnectionStore();
 }
 
 .NavigationView {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   display: grid;
+  position: relative;
+  grid-template-rows: max-content 1fr;
+  grid-template-columns: 200px 1fr;
   grid-template-areas:
     "navigation-header content"
     "navigation-frame content";
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: max-content 1fr;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   gap: fns.gap(1) var(--page-gap);
-  position: relative;
 }
 
 .NavigationHeader {
@@ -80,9 +80,9 @@ const { isConnected } = useConnectionStore();
 
 .NavigationFrame {
   @extend %clean-child-margins;
+  display: flex;
 
   grid-area: navigation-frame;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: var(--page-gap);

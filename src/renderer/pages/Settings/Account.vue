@@ -64,8 +64,8 @@ const logoutDisabled = computed(() => connection.status !== "connected");
 .CurrentUser {
   display: grid;
   grid-template-columns: min-content 1fr min-content;
-  gap: fns.gap(1);
   align-items: center;
+  gap: fns.gap(1);
 }
 
 .UserInfo {

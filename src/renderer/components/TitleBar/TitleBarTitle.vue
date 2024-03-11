@@ -39,15 +39,15 @@ $show-long-name: breakpoints.$md;
 
 .TitleBarTitle {
   display: inline-flex;
-  gap: fns.gap(0.5);
   align-items: center;
+  gap: fns.gap(0.5);
 }
 
 .TitleBarTitle__Icon {
+  position: relative;
   width: 20px;
   height: 20px;
   overflow: hidden;
-  position: relative;
 }
 
 .TitleBarTitle__ShortName {
