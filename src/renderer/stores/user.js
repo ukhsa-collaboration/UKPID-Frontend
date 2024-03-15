@@ -19,14 +19,12 @@ export const useUserStore = defineStore("user", () => {
     email.value = user.email;
     location.value = user.location;
     role.value = user.role;
+    permissions.value = user.permissions;
     createdAt.value = user.createdAt;
     updatedAt.value = user.updatedAt;
   };
 
-  const isAdmin = () => role.value?.includes("Administrator");
-
-  const can = (permission) =>
-    isAdmin() ? true : permissions.value?.includes(permission);
+  const can = (permission) => permissions.value?.includes(permission);
 
   return {
     id,
@@ -34,10 +32,10 @@ export const useUserStore = defineStore("user", () => {
     email,
     location,
     role,
+    permissions,
     createdAt,
     updatedAt,
     requestAndSetUser,
-    isAdmin,
     can,
   };
 });
