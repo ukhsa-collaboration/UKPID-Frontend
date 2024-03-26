@@ -7,13 +7,15 @@
       {
         SlotStart: hasSlot('start'),
         SlotEnd: hasSlot('end'),
+        LabelHidden: props.labelHidden,
       },
     ]"
   >
     <div v-if="hasSlot('start')" slot="start" class="Slot">
       <slot name="start" />
     </div>
-    <slot />
+    <span v-if="props.labelHidden" class="VisuallyHidden"><slot /></span>
+    <template v-else><slot /></template>
     <div v-if="hasSlot('end')" slot="end" class="Slot">
       <slot name="end" />
     </div>
@@ -29,6 +31,10 @@ const props = defineProps({
     type: String,
     default: "medium",
     validator: (value) => ["small", "medium", "large"].includes(value),
+  },
+  labelHidden: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -63,6 +69,10 @@ const model = defineModel({ type: null });
 
 .UkpidTextField {
   height: fit-content;
+}
+
+.LabelHidden::part(label) {
+  margin: 0;
 }
 
 // Base/Medium

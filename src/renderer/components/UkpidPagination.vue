@@ -14,7 +14,7 @@
         <li v-if="props.currentPage > props.perSide + 1">
           <UkpidButton appearance="transparent" @click.prevent="goTo(1)">
             <span aria-hidden="true">1</span
-            ><span class="visually-hidden">{{ $t("First Page") }}</span>
+            ><span class="VisuallyHidden">{{ $t("First Page") }}</span>
           </UkpidButton>
         </li>
         <li v-if="props.currentPage > props.perSide + 2" class="Ellipses">
@@ -29,7 +29,7 @@
               <i18n-t scope="global" keypath="{pageLabel} {page}" tag="span">
                 <template #page>{{ beforePage(n) }}</template>
                 <template #pageLabel>
-                  <span class="visually-hidden">{{ $t("Page") }}</span>
+                  <span class="VisuallyHidden">{{ $t("Page") }}</span>
                 </template>
               </i18n-t>
             </UkpidButton>
@@ -40,7 +40,7 @@
             <i18n-t scope="global" keypath="{pageLabel} {page}" tag="span">
               <template #page>{{ props.currentPage }}</template>
               <template #pageLabel>
-                <span class="visually-hidden">{{ $t("Page") }}</span>
+                <span class="VisuallyHidden">{{ $t("Page") }}</span>
               </template>
             </i18n-t>
           </UkpidButton>
@@ -54,7 +54,7 @@
               <i18n-t scope="global" keypath="{pageLabel} {page}" tag="span">
                 <template #page>{{ afterPage(n) }}</template>
                 <template #pageLabel>
-                  <span class="visually-hidden">{{ $t("Page") }}</span>
+                  <span class="VisuallyHidden">{{ $t("Page") }}</span>
                 </template>
               </i18n-t>
             </UkpidButton>
@@ -72,7 +72,7 @@
             @click.prevent="goTo(props.lastPage)"
           >
             <span aria-hidden="true">{{ props.lastPage }}</span
-            ><span class="visually-hidden">{{ $t("Last Page") }}</span>
+            ><span class="VisuallyHidden">{{ $t("Last Page") }}</span>
           </UkpidButton>
         </li>
         <li>

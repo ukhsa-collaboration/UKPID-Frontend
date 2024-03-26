@@ -34,7 +34,11 @@ import {
   fluentOption,
   fluentSlider,
   fluentSliderLabel,
-  neutralLayerFloating,
+  fluentTabs,
+  fluentTab,
+  fluentTabPanel,
+  fluentTextArea,
+  fluentCheckbox,
 } from "@fluentui/web-components";
 
 import { parseColorHexRGB } from "@microsoft/fast-colors";
@@ -53,6 +57,11 @@ provideFluentDesignSystem().register(
   fluentOption(),
   fluentSlider(),
   fluentSliderLabel(),
+  fluentTab(),
+  fluentTabPanel(),
+  fluentTabs(),
+  fluentTextArea(),
+  fluentCheckbox(),
 );
 
 /**

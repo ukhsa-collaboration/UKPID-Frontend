@@ -8,12 +8,12 @@
   >
     <span
       slot="checked-message"
-      :class="{ 'visually-hidden': !props.showMessages }"
+      :class="{ VisuallyHidden: !props.showMessages }"
       ><slot name="checked-message">{{ $t("Yes") }}</slot></span
     >
     <span
       slot="unchecked-message"
-      :class="{ 'visually-hidden': !props.showMessages }"
+      :class="{ VisuallyHidden: !props.showMessages }"
       ><slot name="unchecked-message">{{ $t("No") }}</slot></span
     >
     <UkpidLabel v-if="hasSlot('label')"><slot name="label" /></UkpidLabel>

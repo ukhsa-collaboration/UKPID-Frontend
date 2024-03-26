@@ -1,5 +1,5 @@
 import { app, session } from "electron";
-import { checkConnection } from "./connection-status";
+import { checkConnection } from "./connectionStatus";
 
 /**
  * This module is used for testing offline mode

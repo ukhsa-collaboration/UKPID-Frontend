@@ -1,7 +1,7 @@
 import path from "node:path";
 import process from "node:process";
-import { homedir } from "os";
-import { rmSync } from "fs";
+import { homedir } from "node:os";
+import { rmSync } from "node:fs";
 
 const appName = "UK Poisons Information Database";
 

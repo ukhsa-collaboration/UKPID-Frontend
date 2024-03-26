@@ -1,5 +1,5 @@
 import * as StatusClient from "./ukpid-api/status";
-import { sendToAll } from "./web-contents";
+import { sendToAll } from "./webContents";
 
 let checkTimeout;
 let status = "disconnected";

@@ -42,10 +42,11 @@ const props = defineProps({
 
 .ContentBody {
   @extend %clean-child-margins;
+
+  position: relative;
   grid-area: body;
   width: 100%;
   max-width: 64rem;
-
   height: 100%;
   margin: 0 auto;
   padding-right: var(--page-gap);

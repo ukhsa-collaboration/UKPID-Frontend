@@ -1,6 +1,6 @@
 import { app } from "electron";
 import path from "node:path";
-import fs from "fs";
+import fs from "node:fs";
 
 let metadata = null;
 

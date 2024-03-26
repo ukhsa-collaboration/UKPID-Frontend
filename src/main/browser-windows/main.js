@@ -1,8 +1,8 @@
 import { BrowserWindow } from "electron";
-import { getWindowTheme } from "../window-theme";
+import { getWindowTheme } from "../windowTheme";
 import { buildingForTest } from "../util";
 import path from "node:path";
-import { showDevTools } from "../dev-tools";
+import { showDevTools } from "../devTools";
 
 export const mainWindowUrl =
   MAIN_WINDOW_VITE_DEV_SERVER_URL ??

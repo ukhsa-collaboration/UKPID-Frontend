@@ -14,6 +14,8 @@ import { exposeSettings } from "./preload/settings";
 import { exposeNavigateTo } from "./preload/navigateTo";
 import { exposeEnquiries } from "./preload/enquiries";
 import { exposePopout } from "./preload/popout";
+import { exposeFormDefinition } from "./preload/formDefinition";
+import { exposeCodes } from "./preload/codes";
 
 if (buildingForTest) {
   import("wdio-electron-service/preload");
@@ -31,3 +33,5 @@ exposeSettings();
 exposeNavigateTo();
 exposePopout();
 exposeEnquiries();
+exposeFormDefinition();
+exposeCodes();

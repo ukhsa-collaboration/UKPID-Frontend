@@ -8,6 +8,8 @@ import { networkIpcHandlers } from "./network";
 import { settingsIpcHandlers } from "./settings";
 import { enquiriesIpcHandlers } from "./enquiries";
 import { popoutIpcHandlers } from "./popout";
+import { formDefinitionIpcHandlers } from "./formDefinition";
+import { codesIpcHandlers } from "./codes";
 
 export const registerIpcHandlers = () => {
   applicationIpcHandlers();
@@ -20,4 +22,6 @@ export const registerIpcHandlers = () => {
   settingsIpcHandlers();
   popoutIpcHandlers();
   enquiriesIpcHandlers();
+  formDefinitionIpcHandlers();
+  codesIpcHandlers();
 };

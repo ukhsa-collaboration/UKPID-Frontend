@@ -5,7 +5,7 @@ import {
   createAuthWindow,
 } from "./browser-windows/auth";
 import { BrowserWindow } from "electron";
-import { sendToAll } from "./web-contents";
+import { sendToAll } from "./webContents";
 import { LoginRequested } from "./errors/LoginRequested";
 
 const ukpidPassport = new Issuer({

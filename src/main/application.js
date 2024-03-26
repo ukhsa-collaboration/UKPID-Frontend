@@ -1,9 +1,9 @@
 import { createMainWindow } from "./browser-windows/main";
 import { createSplashWindow } from "./browser-windows/splash";
 import { app, BrowserWindow, nativeTheme } from "electron";
-import { handleDeepLink } from "./deep-links";
+import { handleDeepLink } from "./deepLinks";
 import { registerIpcHandlers } from "./ipc/register";
-import { setTheme } from "./window-theme";
+import { setTheme } from "./windowTheme";
 import { logout as authLogout } from "./auth";
 import userStore from "./stores/user";
 

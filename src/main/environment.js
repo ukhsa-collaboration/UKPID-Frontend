@@ -1,5 +1,5 @@
 import { app } from "electron";
-import { buildIdentifier } from "./app-metadata";
+import { buildIdentifier } from "./appMetadata";
 
 export const isDevelopment = process.env.NODE_ENV === "development";
 export const isTest = app.isPackaged && buildIdentifier === "test";

@@ -1,8 +1,8 @@
 import { BrowserWindow, ipcMain } from "electron";
-import { getWindowTheme } from "../window-theme";
+import { getWindowTheme } from "../windowTheme";
 import { buildingForTest } from "../util";
 import path from "node:path";
-import { showDevTools } from "../dev-tools";
+import { showDevTools } from "../devTools";
 import * as Sentry from "@sentry/electron";
 
 export const popoutWindowUrl =

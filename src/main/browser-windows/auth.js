@@ -1,9 +1,9 @@
 import { BrowserWindow } from "electron";
-import { getWindowTheme } from "../window-theme";
+import { getWindowTheme } from "../windowTheme";
 import { buildingForTest } from "../util";
 import { enableLoadingViewOnLoad } from "../browser-views/loading";
 import path from "node:path";
-import { sendToAll } from "../web-contents";
+import { sendToAll } from "../webContents";
 
 let window;
 let userAborted = false;

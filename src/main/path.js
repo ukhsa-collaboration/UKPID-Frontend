@@ -1,6 +1,6 @@
 import { app } from "electron";
 import path from "node:path";
-import { buildIdentifier } from "./app-metadata";
+import { buildIdentifier } from "./appMetadata";
 
 const userDataPath = path.join(
   app.getPath("appData"),

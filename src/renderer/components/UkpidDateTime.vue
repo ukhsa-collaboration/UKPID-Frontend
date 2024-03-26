@@ -1,7 +1,7 @@
 <template>
   <fieldset class="UkpidDateTime">
     <UkpidLabel :legend="true"><slot /></UkpidLabel>
-    <label :for="dateEl?.id" class="visually-hidden">{{ $t("Date") }}</label>
+    <label :for="dateEl?.id" class="VisuallyHidden">{{ $t("Date") }}</label>
     <fluent-text-field
       ref="dateEl"
       v-model="date"
@@ -9,7 +9,7 @@
       class="Date"
       type="date"
     />
-    <label :for="timeEl?.id" class="visually-hidden">{{ $t("Time") }}</label>
+    <label :for="timeEl?.id" class="VisuallyHidden">{{ $t("Time") }}</label>
     <fluent-text-field
       ref="timeEl"
       v-model="time"

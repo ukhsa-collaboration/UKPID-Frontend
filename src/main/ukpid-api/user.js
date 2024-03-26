@@ -1,6 +1,6 @@
 import { request } from "./base";
 
-export const user = async (ipcEvent = null, id) =>
+export const show = async (ipcEvent = null, id) =>
   request({
     endpoint: `/user/${id}`,
     options: { method: "GET" },

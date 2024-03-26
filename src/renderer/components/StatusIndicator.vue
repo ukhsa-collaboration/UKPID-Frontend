@@ -15,7 +15,7 @@
       class="Indicator"
       aria-hidden="true"
     />
-    <span :class="{ 'visually-hidden': !props.showLabel }">
+    <span :class="{ VisuallyHidden: !props.showLabel }">
       <slot />
     </span>
   </div>

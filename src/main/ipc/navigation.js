@@ -1,5 +1,5 @@
 // Enquiries
-import { sendToMain } from "../web-contents";
+import { sendToMain } from "../webContents";
 
 export const openNewEnquiry = () => {
   sendToMain("navigateTo:newEnquiry");
