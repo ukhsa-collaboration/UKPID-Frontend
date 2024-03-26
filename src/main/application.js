@@ -6,6 +6,8 @@ import { registerIpcHandlers } from "./ipc/register";
 import { setTheme } from "./windowTheme";
 import { logout as authLogout } from "./auth";
 import userStore from "./stores/user";
+import { startNewFormDefinitionCheck } from "./formDefinition";
+import { startNewCodesCheck } from "./codes";
 
 export let ready = false;
 /** @var {?Electron.BrowserWindow} splashWindow **/
@@ -85,6 +87,9 @@ export const prelaunchComplete = (_ev, user) => {
 
   userStore.clear();
   userStore.set(user);
+
+  startNewFormDefinitionCheck();
+  startNewCodesCheck();
 
   launchMainApplicationWindow();
 };

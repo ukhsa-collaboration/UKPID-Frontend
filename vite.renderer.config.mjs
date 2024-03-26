@@ -33,7 +33,4 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src/renderer/", import.meta.url)),
     },
   },
-  optimizeDeps: {
-    exclude: ["vue-router", "@shimyshack/uid"],
-  },
 });

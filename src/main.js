@@ -12,8 +12,6 @@ import { startConnectionCheck } from "./main/connectionStatus";
 import "./main/settings/userSettingsStore"; // Init the settings store
 import { applyAppearance } from "./main/appearance";
 import { menuTemplate } from "./main/menu";
-import { startNewFormDefinitionCheck } from "./main/formDefinition";
-import { startNewCodesCheck } from "./main/codes";
 
 Sentry.init({
   dsn: "https://abcdb62a6145f7c68d987675268283a5@o4506234853457920.ingest.us.sentry.io/4506274745679872",
@@ -41,8 +39,6 @@ app.on("window-all-closed", () => {
 // Start the application
 startApplication();
 startConnectionCheck();
-startNewFormDefinitionCheck();
-startNewCodesCheck();
 applyAppearance();
 
 const menu = Menu.buildFromTemplate(menuTemplate);

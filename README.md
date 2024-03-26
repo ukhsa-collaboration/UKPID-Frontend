@@ -41,9 +41,17 @@ You must have the following setup and ready to go before working on this project
 
 ### Setup
 
+1. Copy the `.env.development.example` file to `.env.developement`
 1. Run `npm i` to install node modules
    - Add yourself to the contributors listed in the package.json file!
-2. Run `npm run start` to start the application for development
+1. Run `npm run start` to start the application for development
+
+## Outdated Optimize Dep Error
+
+Occasionally, the main window of the application may launch with a blank screen and
+an `net::ERR_ABORTED 504 (Outdated Optimize Dep)` error in the console. This is an issue with Vite that does not
+currently appear to have a permanent fix, though this is often resolved by quitting the process with `ctrl+c` and
+rerunning `npm run start`.
 
 ## Documentation
 
